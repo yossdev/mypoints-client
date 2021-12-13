@@ -1,24 +1,22 @@
 import logo from './logo.svg'
 import './App.css'
 
+import { MdDeleteForever } from 'react-icons/md'
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className="text-3xl text-blue-600 font-bold underline">
+        Hello agents!
+      </h1>
+      <button
+        type="button"
+        className="bg-LightYellow2 rounded-full p-1"
+        aria-label="Delete"
+      >
+        <MdDeleteForever color="red" size="1.75rem" />
+      </button>
+    </>
   )
 }
 
