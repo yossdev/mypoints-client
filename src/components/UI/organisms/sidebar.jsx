@@ -3,14 +3,14 @@ import { useState } from 'react';
 
 function Sidebar() {
 
-    const [redeem, setRedeem] = useState(false);
+    // const [redeem, setRedeem] = useState(false);
 
     return (
         <div className="flex flex-no-wrap">
             {/* Sidebar starts */}
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
             <div className="absolute h-full bg-[#5F2788] shadow flex-col justify-between sm:flex">
-                <div className="pl-2 pr-10">
+                <div className="pl-5 pr-5">
                     <div className="h-16 w-full pl-2 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width={144} height={30} viewBox="0 0 144 30">
                             <path
@@ -43,7 +43,7 @@ function Sidebar() {
                             </div>
                         </li>
 
-                        <li onClick={() => setRedeem(true)} className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                        <li className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
                             <div className="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
                                     <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"/>
@@ -58,8 +58,7 @@ function Sidebar() {
                             </div>
                         </li>
 
-                    {redeem?
-                    <ul className="mt-5">
+                    <div> <ul>
                         <li className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
                             <div className="flex items-center">
                                 <span className="text-md  ml-7">Bank Transfer</span>
@@ -77,7 +76,7 @@ function Sidebar() {
                                 <span className="text-md ml-7">Pulsa / Paket Data</span>
                             </div>
                         </li>
-                    </ul>};
+                    </ul> </div>
 
                         <li className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
                             <div className="flex items-center">
@@ -99,19 +98,7 @@ function Sidebar() {
                             </div>
                         </li>
                     </ul>
-                    
-                    {/* <div className="flex justify-center mt-48 mb-4 w-full">
-                        <div className="relative ">
-                            <div className="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <circle cx={10} cy={10} r={7} />
-                                    <line x1={21} y1={21} x2={15} y2={15} />
-                                </svg>
-                            </div>
-                            <input className="bg-gray-700 focus:outline-none rounded w-full text-sm text-gray-500 bg-gray-100 pl-10 py-2" type="text" placeholder="Search" />
-                        </div>
-                    </div> */}
+                
                 </div>
             </div>
             
