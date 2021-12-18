@@ -1,4 +1,4 @@
-import Sidebar from './components/UI/organisms/sidebar'
+import Sidebar from './components/sidebar'
 // import { MdDeleteForever } from 'react-icons/md'
 
 function App() {
