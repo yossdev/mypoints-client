@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/images/mypoints-logo-white.png"
 import { useState } from 'react';
 
 function Sidebar() {
@@ -12,7 +13,7 @@ function Sidebar() {
             <div className="absolute h-full bg-[#5F2788] shadow flex-col justify-between sm:flex">
                 <div className="pl-5 pr-5">
                     <div className="h-16 w-full pl-2 flex items-center">
-                        <img alt="logo white" src={require('../assets/images/mypoints-logo-white.png').default} />
+                        <img alt="logo white" src={logo} width={144} />
                     </div>
 
                     <ul className="mt-5">
