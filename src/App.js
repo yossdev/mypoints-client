@@ -7,6 +7,7 @@ import Redeems from "./components/pages/Redeems";
 import History from "./components/pages/History";
 import FAQ from "./components/pages/FAQ";
 import Profile from "./components/pages/Profile";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
     return (
@@ -19,6 +20,8 @@ function App() {
                 <Route path="history" element={<History />} />
                 <Route path="faq" element={<FAQ />} />
                 <Route path="profile" element={<Profile />} />
+
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </>
     )
