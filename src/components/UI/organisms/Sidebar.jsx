@@ -9,15 +9,13 @@ import {
   ChevronDownIcon,
 } from '@primer/octicons-react'
 
-import logo from '../atoms/mypoints-white.svg'
+import logo from '../atoms/logo-white.svg'
 
 const Sidebar = () => {
   const [redeem, setRedeem] = useState(false)
 
   return (
     <>
-      {/* Sidebar starts */}
-      {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
       <div className="absolute h-full bg-purple shadow flex-col justify-between sm:flex font-roboto">
         <div className="pl-5 pr-5">
           <div className="h-16 w-full pl-2 flex items-center">

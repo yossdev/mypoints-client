@@ -2,6 +2,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
     extend: {
+      boxShadow: ['active'],
       fontFamily: {
         roboto: ['Roboto', 'sans serif'],
         poppins: ['Poppins', 'sans serif'],
