@@ -1,10 +1,12 @@
-
+import UserMenu from "../UI/molecules/UserMenu";
+import Sidebar from "../UI/organisms/Sidebar";
 
 function Dashboard() {
 
     return (
         <>
-            <h1>Dashboard</h1>
+            <Sidebar />
+            <UserMenu />
         </>
     );
 }
