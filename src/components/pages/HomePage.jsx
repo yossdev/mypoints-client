@@ -1,12 +1,11 @@
+const HomePage = () => {
+  document.title = 'MyPoints'
 
-
-function HomePage() {
-
-    return (
-        <>
-            <h1>Home ini adalah rumah kita.</h1>
-        </>
-    );
+  return (
+    <>
+      <div className="font-roboto">Home ini adalah rumah kita.</div>
+    </>
+  )
 }
 
-export default HomePage;
+export default HomePage

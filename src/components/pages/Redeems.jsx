@@ -1,12 +1,11 @@
+const Redeems = () => {
+  document.title = 'Redeems'
 
-
-function Redeems() {
-
-    return (
-        <>
-            <h1>Redeems</h1>
-        </>
-    );
+  return (
+    <>
+      <h1>Redeems</h1>
+    </>
+  )
 }
 
 export default Redeems
