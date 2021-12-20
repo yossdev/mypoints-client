@@ -1,5 +1,5 @@
-import UserMenu from "../UI/molecules/usermenu";
-import Sidebar from "../UI/organisms/sidebar";
+import UserMenu from "../UI/molecules/UserMenu";
+import Sidebar from "../UI/organisms/Sidebar";
 
 function Dashboard() {
 
