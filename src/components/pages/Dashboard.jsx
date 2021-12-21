@@ -1,14 +1,15 @@
-import UserMenu from "../UI/molecules/UserMenu";
-import Sidebar from "../UI/organisms/Sidebar";
+import UserMenu from '../UI/organisms/UserMenu'
+import Sidebar from '../UI/organisms/Sidebar'
 
-function Dashboard() {
+const Dashboard = () => {
+  document.title = 'Dashboard'
 
-    return (
-        <>
-            <Sidebar />
-            <UserMenu />
-        </>
-    );
+  return (
+    <>
+      <Sidebar />
+      <UserMenu />
+    </>
+  )
 }
 
 export default Dashboard

@@ -1,12 +1,11 @@
+const Claims = () => {
+  document.title = 'Claims'
 
-
-function Claims() {
-
-    return (
-        <>
-            <h1>Claims</h1>
-        </>
-    );
+  return (
+    <>
+      <h1>Claims</h1>
+    </>
+  )
 }
 
 export default Claims
