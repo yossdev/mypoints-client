@@ -1,5 +1,3 @@
-import ButtonLogin from '../atoms/Button'
-
 const BannerTitle = () => {
   return (
     <div className="flex md:w-3/6 flex-col justify-center md:text-left ml-16">

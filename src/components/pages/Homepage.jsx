@@ -1,5 +1,6 @@
 import Header from '../UI/organisms/Header'
 import Banner from '../UI/organisms/Banner'
+import ApaItuMyPoints from '../UI/organisms/ApaItuMyPoints'
 
 const Homepage = () => {
   document.title = 'MyPoints'
@@ -8,6 +9,7 @@ const Homepage = () => {
     <>
       <Header />
       <Banner />
+      <ApaItuMyPoints />
     </>
   )
 }
