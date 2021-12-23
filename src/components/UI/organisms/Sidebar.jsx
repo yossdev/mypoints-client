@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   UnverifiedIcon,
@@ -24,19 +25,23 @@ const Sidebar = () => {
 
           <ul className="mt-5">
             <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <HomeIcon size={20} />
+              <Link to="/dashboard">
+                <div className="flex items-center">
+                  <HomeIcon size={20} />
 
-                <span className="text-md ml-2">Dashboard</span>
-              </div>
+                  <span className="text-md ml-2">Dashboard</span>
+                </div>
+              </Link>
             </li>
 
             <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <TagIcon size={20} />
+              <Link to="/claims">
+                <div className="flex items-center">
+                  <TagIcon size={20} />
 
-                <span className="text-md  ml-2">Claims</span>
-              </div>
+                  <span className="text-md  ml-2">Claims</span>
+                </div>
+              </Link>
             </li>
 
             <li
@@ -57,40 +62,50 @@ const Sidebar = () => {
                 {' '}
                 <ul>
                   <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md  ml-7">Bank Transfer</span>
-                    </div>
+                    <Link to="/redeems">
+                      <div className="flex items-center">
+                        <span className="text-md  ml-7">Bank Transfer</span>
+                      </div>
+                    </Link>
                   </li>
 
                   <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md  ml-7">E - Wallet</span>
-                    </div>
+                    <Link to="/redeems">
+                      <div className="flex items-center">
+                        <span className="text-md  ml-7">E - Wallet</span>
+                      </div>
+                    </Link>
                   </li>
 
                   <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md ml-7">Pulsa / Paket Data</span>
-                    </div>
+                    <Link to="/redeems">
+                      <div className="flex items-center">
+                        <span className="text-md ml-7">Pulsa / Paket Data</span>
+                      </div>
+                    </Link>
                   </li>
                 </ul>{' '}
               </div>
             ) : null}
 
             <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <HourglassIcon size={20} />
+              <Link to="/history">
+                <div className="flex items-center">
+                  <HourglassIcon size={20} />
 
-                <span className="text-md ml-2">History</span>
-              </div>
+                  <span className="text-md ml-2">History</span>
+                </div>
+              </Link>
             </li>
 
             <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <UnverifiedIcon size={20} />
+              <Link to="/faq">
+                <div className="flex items-center">
+                  <UnverifiedIcon size={20} />
 
-                <span className="text-md ml-2">FAQ</span>
-              </div>
+                  <span className="text-md ml-2">FAQ</span>
+                </div>
+              </Link>
             </li>
           </ul>
         </div>
