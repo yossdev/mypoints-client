@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+
 import {
   ChevronDownIcon,
   PersonIcon,
@@ -31,11 +33,13 @@ const UserMenu = () => {
           <div className="w-100 absolute bg-white p-2 border border-purple rounded-md mt-2 drop-shadow-lg">
             <ul>
               <li className="flex hover:bg-lightpurple cursor-pointer p-2">
-                <div className="flex items-center">
-                  <PersonIcon size={16} fill="darkgrey" />
+                <NavLink to="/profile">
+                  <div className="flex items-center">
+                    <PersonIcon size={16} fill="darkgrey" />
 
-                  <span className="text-sm ml-2">Profile</span>
-                </div>
+                    <span className="text-sm ml-2">Profile</span>
+                  </div>
+                </NavLink>
               </li>
 
               <li className="flex hover:bg-lightpurple cursor-pointer p-2">

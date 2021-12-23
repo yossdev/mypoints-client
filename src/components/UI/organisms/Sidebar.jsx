@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import {
   UnverifiedIcon,
@@ -23,21 +24,25 @@ const Sidebar = () => {
           </div>
 
           <ul className="mt-5">
-            <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <HomeIcon size={20} />
+            <NavLink to="/dashboard">
+              <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                <div className="flex items-center">
+                  <HomeIcon size={20} />
 
-                <span className="text-md ml-2">Dashboard</span>
-              </div>
-            </li>
+                  <span className="text-md ml-2">Dashboard</span>
+                </div>
+              </li>
+            </NavLink>
 
-            <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <TagIcon size={20} />
+            <NavLink to="/claims">
+              <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                <div className="flex items-center">
+                  <TagIcon size={20} />
 
-                <span className="text-md  ml-2">Claims</span>
-              </div>
-            </li>
+                  <span className="text-md  ml-2">Claims</span>
+                </div>
+              </li>
+            </NavLink>
 
             <li
               onClick={() => setRedeem(!redeem)}
@@ -56,42 +61,52 @@ const Sidebar = () => {
               <div>
                 {' '}
                 <ul>
-                  <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md  ml-7">Bank Transfer</span>
-                    </div>
-                  </li>
+                  <NavLink to="/redeems">
+                    <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                      <div className="flex items-center">
+                        <span className="text-md  ml-7">Bank Transfer</span>
+                      </div>
+                    </li>
+                  </NavLink>
 
-                  <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md  ml-7">E - Wallet</span>
-                    </div>
-                  </li>
+                  <NavLink to="/redeems">
+                    <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                      <div className="flex items-center">
+                        <span className="text-md  ml-7">E - Wallet</span>
+                      </div>
+                    </li>
+                  </NavLink>
 
-                  <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-                    <div className="flex items-center">
-                      <span className="text-md ml-7">Pulsa / Paket Data</span>
-                    </div>
-                  </li>
+                  <NavLink to="/redeems">
+                    <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                      <div className="flex items-center">
+                        <span className="text-md ml-7">Pulsa / Paket Data</span>
+                      </div>
+                    </li>
+                  </NavLink>
                 </ul>{' '}
               </div>
             ) : null}
 
-            <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <HourglassIcon size={20} />
+            <NavLink to="/history">
+              <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                <div className="flex items-center">
+                  <HourglassIcon size={20} />
 
-                <span className="text-md ml-2">History</span>
-              </div>
-            </li>
+                  <span className="text-md ml-2">History</span>
+                </div>
+              </li>
+            </NavLink>
 
-            <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
-              <div className="flex items-center">
-                <UnverifiedIcon size={20} />
+            <NavLink to="/faq">
+              <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                <div className="flex items-center">
+                  <UnverifiedIcon size={20} />
 
-                <span className="text-md ml-2">FAQ</span>
-              </div>
-            </li>
+                  <span className="text-md ml-2">FAQ</span>
+                </div>
+              </li>
+            </NavLink>
           </ul>
         </div>
       </div>
