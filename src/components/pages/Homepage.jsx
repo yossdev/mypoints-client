@@ -1,9 +1,11 @@
+import Header from '../UI/organisms/Header'
+
 const Homepage = () => {
   document.title = 'MyPoints'
 
   return (
     <>
-      <div>Home ini adalah rumah kita.</div>
+      <Header />
     </>
   )
 }
