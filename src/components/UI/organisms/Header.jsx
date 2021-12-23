@@ -1,10 +1,15 @@
 import logo from '../atoms/logo.svg'
+import ButtonLogin from '../atoms/Button'
 
 function Header() {
   return (
-    <div className="h-screen bg-[#eeeeee]">
-      <div className="float-right h-16 bg-white flex items-center w-full p-3 shadow-md border-t-8 border-[#5F2788]">
-        <img className="ml-20" alt="logo ungu" src={logo} width={175} />
+    <div className="relative select-none bg-white lg:flex lg:items-center h-16 w-full p-3 shadow-md border-t-8 border-purple">
+      <img className="ml-28" alt="logo ungu" src={logo} width={175} />
+
+      <div className="lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
+        <div className="lg:flex lg:items-stretch lg:justify-end ml-auto">
+          <ButtonLogin />
+        </div>
       </div>
     </div>
   )
