@@ -8,8 +8,10 @@ const BannerTitle = () => {
         Kumpulkan poinnya, <br />
         Dapatkan hadiahnya!!
       </h1>
-      <p className="leading-normal text-md mb-8">
-        Sub-hero message, not too long and not too short. Make it just right!
+      <p className="leading-normal text-md my-8 font-roboto-300">
+        MyPoints merupakan bentuk apresiasi kepada Anda para agen. Nikmati
+        keuntungan dari setiap transaksi dengan mendapatkan saldo MyPoints yang
+        dapat ditukarkan dengan berbagai hadiah menarik.
       </p>
     </div>
   )

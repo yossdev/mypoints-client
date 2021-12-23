@@ -5,7 +5,7 @@ const Login = () => {
 
   return (
     <div className="h-screen bg-purple flex items-center font-roboto">
-      <div className="mx-auto space-y-6 bg-white shadow-md border border-white rounded-lg lg:px-10 lg:pb-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="mx-auto space-y-6 bg-white shadow-md border border-white rounded-lg lg:px-10 lg:pb-8">
         <form className="space-y-6" action="#">
           <img className="ml-8" alt="logo ungu" src={logo} width={175} />
 
@@ -50,7 +50,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
             Login to your account
           </button>
