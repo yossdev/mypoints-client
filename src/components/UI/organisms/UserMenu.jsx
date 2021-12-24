@@ -26,7 +26,7 @@ const UserMenu = () => {
             width={35}
           />
 
-          <ChevronDownIcon size={20} fill="darkgrey" />
+          <ChevronDownIcon size={20} fill="#5C5C5C" />
         </div>
 
         {menu ? (
@@ -35,7 +35,7 @@ const UserMenu = () => {
               <li className="flex hover:bg-lightpurple cursor-pointer p-2">
                 <NavLink to="/profile">
                   <div className="flex items-center">
-                    <PersonIcon size={16} fill="darkgrey" />
+                    <PersonIcon size={16} fill="#5C5C5C" />
 
                     <span className="text-sm ml-2">Profile</span>
                   </div>
@@ -44,7 +44,7 @@ const UserMenu = () => {
 
               <li className="flex hover:bg-lightpurple cursor-pointer p-2">
                 <div className="flex items-center">
-                  <SignOutIcon size={16} fill="darkgrey" />
+                  <SignOutIcon size={16} fill="#5C5C5C" />
 
                   <span className="text-sm ml-2">Logout</span>
                 </div>

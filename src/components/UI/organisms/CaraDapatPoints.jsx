@@ -3,7 +3,7 @@ import { PersonAddIcon, ChecklistIcon, GiftIcon } from '@primer/octicons-react'
 const CaraDapatPoints = () => {
   return (
     <>
-      <div className="mx-auto mt-36 pb-2 w-5/12 h-12 border-b-2 border-purple">
+      <div className="mx-auto mt-36 pb-2 w-fit h-12 border-b-2 border-purple">
         <h1 className="text-center text-2xl font-bold leading-tight text-purple font-poppins">
           Bagaimana cara mendapatkan MyPoints?
         </h1>
