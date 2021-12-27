@@ -3,7 +3,7 @@ import BannerTitle from '../molecules/BannerTitle'
 
 const Banner = () => {
   return (
-    <div className="pt-12 container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <div className="mt-20 container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left Col */}
       <BannerTitle />
 

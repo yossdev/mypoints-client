@@ -1,5 +1,3 @@
-import ButtonLogin from '../atoms/Button'
-
 const BannerTitle = () => {
   return (
     <div className="flex md:w-3/6 flex-col justify-center md:text-left ml-16">
@@ -8,8 +6,10 @@ const BannerTitle = () => {
         Kumpulkan poinnya, <br />
         Dapatkan hadiahnya!!
       </h1>
-      <p className="leading-normal text-md mb-8">
-        Sub-hero message, not too long and not too short. Make it just right!
+      <p className="leading-normal text-md my-8 font-roboto font-light">
+        MyPoints merupakan bentuk apresiasi kepada Anda para agen. Nikmati
+        keuntungan dari setiap transaksi dengan mendapatkan saldo MyPoints yang
+        dapat ditukarkan dengan berbagai hadiah menarik.
       </p>
     </div>
   )
