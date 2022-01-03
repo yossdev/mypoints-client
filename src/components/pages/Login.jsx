@@ -1,27 +1,72 @@
+import { useState } from 'react'
+import axios from 'axios'
+
 import logo from '../UI/atoms/logo.svg'
 import agent from '../UI/atoms/agent.svg'
+
+const baseURL = 'https://server.mypoints.site/api/v1/login'
 
 const Login = () => {
   document.title = 'Login'
 
+  const dataLogin = {
+    email: '',
+    password: '',
+  }
+
+  const [reqBody, setReqBody] = useState(dataLogin)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState()
+
+  const handleChange = (e) => {
+    const value = e.target.value
+    setReqBody({
+      ...reqBody,
+      [e.target.name]: value,
+    })
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    setLoading(true)
+    axios
+      .post(baseURL, reqBody)
+      .then(function (response) {
+        // dispatch redux untuk simpan jwt access token
+        console.log('berhasil login', response.data.data)
+      })
+      .catch(function (err) {
+        setError(err)
+        // console.log('ada error', err)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
+
+  if (loading) return <h1>loading...</h1>
+  // if (error) return <h1>error...</h1>
+
   return (
     <div className="flex items-center">
       <div className="mx-auto w-1/4 font-roboto space-y-6 bg-white shadow-lg border border-purple rounded-lg px-5 pb-8">
-        <form className="space-y-6" action="#">
+        <form method="post" className="space-y-6" onSubmit={handleLogin}>
           <img className="mx-auto" alt="logo ungu" src={logo} width={175} />
-
           <h3 className="text-xl text-center font-medium text-purple">
             Selamat Datang Para Agen
           </h3>
 
+          {error && <h1>ga berhasil login...</h1>}
+
           <div>
             <label
-              for="email"
+              htmlFor="email"
               className="text-sm font-medium text-purple block mb-2"
             >
               e-mail
             </label>
             <input
+              onChange={handleChange}
               type="email"
               name="email"
               id="email"
@@ -30,16 +75,16 @@ const Login = () => {
               required
             />
           </div>
-
           <div>
             <label
-              for="password"
+              htmlFor="password"
               className="text-sm font-medium text-purple block mb-2"
             >
               password
             </label>
 
             <input
+              onChange={handleChange}
               type="password"
               name="password"
               id="password"
@@ -48,7 +93,6 @@ const Login = () => {
               required
             />
           </div>
-
           <button
             type="submit"
             className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -58,7 +102,7 @@ const Login = () => {
         </form>
       </div>
 
-      <div class="w-1/2 h-screen bg-purple items-center">
+      <div className="w-1/2 h-screen bg-purple items-center">
         <img
           className="flex mx-auto mt-16"
           alt="banner agent"
