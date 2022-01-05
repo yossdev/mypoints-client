@@ -1,4 +1,4 @@
-import koin from '../atoms/koin.svg'
+import koin from '../../../assets/koin.svg'
 import TeksMyPoints from '../molecules/TeksMyPoints'
 
 const ApaItuMyPoints = () => {

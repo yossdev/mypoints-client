@@ -10,7 +10,7 @@ import {
   ChevronDownIcon,
 } from '@primer/octicons-react'
 
-import logo from '../atoms/logo-white.svg'
+import logo from '../../../assets/logo-white.svg'
 
 const Sidebar = () => {
   const [redeem, setRedeem] = useState(false)

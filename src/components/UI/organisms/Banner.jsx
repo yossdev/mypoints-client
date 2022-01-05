@@ -1,4 +1,4 @@
-import agent from '../atoms/agent.svg'
+import agent from '../../../assets/agent.svg'
 import BannerTitle from '../molecules/BannerTitle'
 
 const Banner = () => {

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import logo from '../UI/atoms/logo.svg'
-import agent from '../UI/atoms/agent.svg'
+import logo from '../../../assets/logo.svg'
+import agent from '../../../assets/agent.svg'
 
 const baseURL = 'https://server.mypoints.site/api/v1/login'
 

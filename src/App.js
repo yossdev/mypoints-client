@@ -8,7 +8,7 @@ import History from './components/pages/History'
 import FAQ from './components/pages/FAQ'
 import Profile from './components/pages/Profile'
 import Login from './components/pages/Login'
-import NotFound from './components/pages/NotFound'
+import NotFound from './components/pages/Not Found'
 
 function App() {
   return (
