@@ -1,5 +1,5 @@
-import logo from '../../../assets/logo.svg'
-import ButtonLogin from '../atoms/Button'
+import logo from '../../../../assets/logo.svg'
+import ButtonLogin from '../../atoms/btnLogin'
 
 import { NavLink } from 'react-router-dom'
 
