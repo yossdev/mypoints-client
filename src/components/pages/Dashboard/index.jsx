@@ -1,5 +1,5 @@
-import UserMenu from '../UI/organisms/UserMenu'
-import Sidebar from '../UI/organisms/Sidebar'
+import UserMenu from '../../UI/organisms/UserMenu'
+import Sidebar from '../../UI/organisms/Sidebar'
 
 import { HomeIcon } from '@primer/octicons-react'
 
