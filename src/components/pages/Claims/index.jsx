@@ -1,13 +1,15 @@
 import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
+import Klaim from '../../UI/organisms/Claims/Klaim'
 
 import { TagIcon } from '@primer/octicons-react'
 
 const Claims = () => {
   document.title = 'Claims'
+  document.body.style = 'background: #EEEEEE;'
 
   return (
-    <div className="h-screen bg-grey">
+    <>
       <Sidebar />
       <UserMenu />
 
@@ -16,7 +18,18 @@ const Claims = () => {
         <span className="text-sm ml-2 text-darkgrey">/ Claims</span> <br />
         <span className="text-md text-darkgrey font-bold">Claims</span>
       </div>
-    </div>
+
+      <div
+        style={{
+          marginTop: '17px',
+          width: '80%',
+          float: 'right',
+          padding: '20px',
+        }}
+      >
+        <Klaim />
+      </div>
+    </>
   )
 }
 

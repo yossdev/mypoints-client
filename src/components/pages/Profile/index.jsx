@@ -1,6 +1,8 @@
 import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
 import Loading from '../../UI/atoms/Loading'
+import Avatar from '../../UI/organisms/Profile/Avatar'
+import EditProfile from '../../UI/organisms/Profile/EditProfile'
 
 import { useQuery } from '@apollo/client'
 import { GET_AGENT } from '../../../GraphQL/Query'
@@ -11,6 +13,7 @@ import { store } from '../../../store/store'
 
 const Profile = () => {
   document.title = 'Profile'
+  document.body.style = 'background: #EEEEEE;'
 
   const { data, loading, error } = useQuery(GET_AGENT, {
     notifyOnNetworkStatusChange: true,
@@ -31,7 +34,7 @@ const Profile = () => {
   const agent = data.agents[0]
 
   return (
-    <div className="h-screen bg-grey">
+    <>
       <Sidebar />
       <UserMenu />
 
@@ -42,7 +45,20 @@ const Profile = () => {
         <span className="text-md text-darkgrey font-bold">Profile</span>
         <p>{agent.name}</p>
       </div>
-    </div>
+
+      <div
+        style={{
+          marginTop: '17px',
+          width: '80%',
+          float: 'right',
+          padding: '20px',
+          display: 'inline',
+        }}
+      >
+        <Avatar />
+        <EditProfile />
+      </div>
+    </>
   )
 }
 
