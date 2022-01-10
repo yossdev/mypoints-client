@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { isAuthorized, storeJwt } from '../../../store/slice'
+import { useDispatch } from 'react-redux'
+import { store } from '../../../store/store'
 
 import logo from '../../../assets/logo.svg'
 import agent from '../../../assets/agent.svg'
@@ -18,6 +22,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
+  const dispatch = useDispatch()
+
   const handleChange = (e) => {
     const value = e.target.value
     setReqBody({
@@ -32,8 +38,10 @@ const Login = () => {
     axios
       .post(baseURL, reqBody)
       .then(function (response) {
-        // dispatch redux untuk simpan jwt access token
-        console.log('berhasil login', response.data.data)
+        // dispatch redux untuk simpan jwt access token saat berhasil login
+        const accessToken = response.data.data.access_token
+        dispatch(storeJwt(accessToken))
+        dispatch(isAuthorized(true))
       })
       .catch(function (err) {
         setError(err)
@@ -44,8 +52,17 @@ const Login = () => {
       })
   }
 
+  const s = store.getState()
+  let navigate = useNavigate()
+
+  // for redirect after successful login
+  useEffect(() => {
+    if (!loading && s.store.authorized) {
+      navigate('/dashboard', { replace: true })
+    }
+  })
+
   if (loading) return <h1>loading...</h1>
-  // if (error) return <h1>error...</h1>
 
   return (
     <div className="flex items-center">

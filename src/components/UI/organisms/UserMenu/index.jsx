@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useApolloClient } from '@apollo/client'
+import { useDispatch } from 'react-redux'
+import { signOut } from '../../../../store/slice'
 
 import {
   ChevronDownIcon,
@@ -9,6 +12,14 @@ import {
 
 const UserMenu = () => {
   const [menu, setMenu] = useState(false)
+
+  const client = useApolloClient()
+  const dispatch = useDispatch()
+
+  const handleSignOut = () => {
+    client.resetStore()
+    dispatch(signOut())
+  }
 
   return (
     <>
@@ -46,7 +57,9 @@ const UserMenu = () => {
                 <div className="flex items-center">
                   <SignOutIcon size={16} fill="#5C5C5C" />
 
-                  <span className="text-sm ml-2">Logout</span>
+                  <span className="text-sm ml-2">
+                    <button onClick={() => handleSignOut()}>Log out</button>
+                  </span>
                 </div>
               </li>
             </ul>
