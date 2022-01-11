@@ -2,6 +2,8 @@ import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
 import Klaim from '../../UI/organisms/Claims/Klaim'
 
+import { Products } from '../../UI/organisms/Claims/MockProduct'
+
 import { TagIcon } from '@primer/octicons-react'
 
 const Claims = () => {
@@ -27,7 +29,7 @@ const Claims = () => {
           padding: '20px',
         }}
       >
-        <Klaim />
+        <Klaim product={Products} />
       </div>
     </>
   )

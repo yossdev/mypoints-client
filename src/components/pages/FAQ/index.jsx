@@ -2,12 +2,20 @@ import { useState } from 'react'
 
 import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
+// import Loading from '../../UI/atoms/Loading'
+// import Error from '../../pages/Error'
 
 import { UnverifiedIcon, ChevronDownIcon } from '@primer/octicons-react'
 
 const FAQ = () => {
   document.title = 'FAQ'
   document.body.style = 'background: #EEEEEE;'
+
+  // const [loading, setLoading] = useState(false)
+  // const [error, setError] = useState(false)
+
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
   const [jawab1, setJawab1] = useState(false)
   const [jawab2, setJawab2] = useState(false)
