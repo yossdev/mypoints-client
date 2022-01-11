@@ -18,8 +18,6 @@ const UserMenu = () => {
   const dispatch = useDispatch()
   let navigate = useNavigate()
 
-  let navigate = useNavigate()
-
   const handleSignOut = () => {
     client.resetStore()
     dispatch(signOut())
