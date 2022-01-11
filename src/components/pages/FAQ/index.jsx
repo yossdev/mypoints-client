@@ -1,22 +1,12 @@
 import { useState } from 'react'
 
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
-// import Loading from '../../UI/atoms/Loading'
-// import Error from '../../pages/Error'
-
 import { UnverifiedIcon, ChevronDownIcon } from '@primer/octicons-react'
 
 const FAQ = () => {
   document.title = 'FAQ'
   document.body.style = 'background: #EEEEEE;'
 
-  // const [loading, setLoading] = useState(false)
-  // const [error, setError] = useState(false)
-
-  // if (loading) return <Loading />
-  // if (error) return <Error />
-
+  // TODO refactor ini
   const [jawab1, setJawab1] = useState(false)
   const [jawab2, setJawab2] = useState(false)
   const [jawab3, setJawab3] = useState(false)
@@ -26,9 +16,6 @@ const FAQ = () => {
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <UnverifiedIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">/ FAQ</span> <br />
@@ -51,7 +38,7 @@ const FAQ = () => {
         >
           <div className="flow-root">
             <ul className="divide-y divide-gray-200">
-              <li className="py-3 py-4">
+              <li className="py-3">
                 <div
                   onClick={() => setJawab1(!jawab1)}
                   className="flex items-center space-x-4 hover:underline cursor-pointer"

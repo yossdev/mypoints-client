@@ -1,8 +1,6 @@
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
-import Klaim from '../../UI/organisms/Claims/Klaim'
+import Claim from '../../UI/organisms/Claim'
 
-import { Products } from '../../UI/organisms/Claims/MockProduct'
+import { Products } from '../../UI/organisms/Claim/MockProduct'
 
 import { TagIcon } from '@primer/octicons-react'
 
@@ -12,9 +10,6 @@ const Claims = () => {
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <TagIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">/ Claims</span> <br />
@@ -29,7 +24,7 @@ const Claims = () => {
           padding: '20px',
         }}
       >
-        <Klaim product={Products} />
+        <Claim product={Products} />
       </div>
     </>
   )

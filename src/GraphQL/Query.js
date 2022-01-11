@@ -5,6 +5,9 @@ const GET_AGENT = gql`
     agents {
       id
       name
+      email
+      img
+      points
     }
   }
 `

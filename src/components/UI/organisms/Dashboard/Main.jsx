@@ -1,6 +1,6 @@
 import flower from '../../../../assets/flower.svg'
 
-const Info = () => {
+const Main = () => {
   return (
     <div className="mb-8 font-roboto">
       <div
@@ -94,4 +94,4 @@ const Info = () => {
   )
 }
 
-export default Info
+export default Main

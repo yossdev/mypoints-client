@@ -1,4 +1,4 @@
-import ButtonSimpan from '../../atoms/btnSimpan'
+import ButtonSimpan from '../../atoms/Button/Simpan'
 
 const EditProfile = () => {
   return (

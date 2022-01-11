@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
+const FAQ = {
+  first: false,
+  second: false,
+  third: false,
+  fourth: false,
+  fifth: false,
+  sixth: false,
+}
+
 const DaftarPertanyaan = () => {
-  const [jawab1, setJawab1] = useState(false)
-  const [jawab2, setJawab2] = useState(false)
-  const [jawab3, setJawab3] = useState(false)
-  const [jawab4, setJawab4] = useState(false)
-  const [jawab5, setJawab5] = useState(false)
-  const [jawab6, setJawab6] = useState(false)
+  const [faq, setFaq] = useState(FAQ)
 
   return (
     <>
@@ -22,7 +26,7 @@ const DaftarPertanyaan = () => {
           <ul className="divide-y divide-gray-200">
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab1(!jawab1)}
+                onClick={() => setFaq({ ...faq, first: !faq.first })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -35,7 +39,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab1 ? (
+              {faq.first ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   MyPoints adalah website aplikasi yang digunakan perusahaan
                   retail yang menjual berbagai produk. Setiap penjualan produk,
@@ -48,7 +52,7 @@ const DaftarPertanyaan = () => {
 
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab2(!jawab2)}
+                onClick={() => setFaq({ ...faq, second: !faq.second })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -63,7 +67,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab2 ? (
+              {faq.second ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   Yes! Untuk menjadi agen, Anda harus didaftarkan oleh
                   masing-masing Admin retail. Setelah itu Anda bisa memulai
@@ -74,7 +78,7 @@ const DaftarPertanyaan = () => {
 
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab3(!jawab3)}
+                onClick={() => setFaq({ ...faq, third: !faq.third })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -89,7 +93,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab3 ? (
+              {faq.third ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   1 MyPoints senilai 100 Rupiah.
                 </p>
@@ -98,7 +102,7 @@ const DaftarPertanyaan = () => {
 
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab4(!jawab4)}
+                onClick={() => setFaq({ ...faq, fourth: !faq.fourth })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -113,7 +117,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab4 ? (
+              {faq.fourth ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   Jual salah satu produk yang ada, kemudian nantinya kamu akan
                   mendapatkan saldo MyPoints. Setelah itu, kamu bisa menukarkan
@@ -124,7 +128,7 @@ const DaftarPertanyaan = () => {
 
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab5(!jawab5)}
+                onClick={() => setFaq({ ...faq, fifth: !faq.fifth })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -140,7 +144,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab5 ? (
+              {faq.fifth ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   Jumlah MyPoints untuk setiap produk berbeda. Anda dapat
                   memeriksa jumlah Poin yang akan Anda peroleh dari setiap
@@ -151,7 +155,7 @@ const DaftarPertanyaan = () => {
 
             <li className="py-3 sm:py-4">
               <div
-                onClick={() => setJawab6(!jawab6)}
+                onClick={() => setFaq({ ...faq, sixth: !faq.sixth })}
                 className="flex items-center space-x-4 hover:underline cursor-pointer"
               >
                 <div className="flex-shrink-0"></div>
@@ -166,7 +170,7 @@ const DaftarPertanyaan = () => {
                   fill="#5F2788"
                 />
               </div>
-              {jawab6 ? (
+              {faq.sixth ? (
                 <p className="ml-4 mt-4 font-roboto font-light text-sm">
                   Anda dapat menggunakan MyPoints untuk redeem / penukaran
                   dengan hadiah menarik tertentu sesuai keinginan.

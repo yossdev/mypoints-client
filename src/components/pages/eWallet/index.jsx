@@ -1,15 +1,15 @@
-import Loading from '../../atoms/Loading'
-import Error from '../../../pages/Error'
+// import Loading from '../../UI/atoms/Loading'
+// import Error from '../../UI/organisms/Error'
 
-import { useQuery } from '@apollo/client'
+// import { useQuery } from '@apollo/client'
 
-const Ewallet = () => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
+const EWallet = () => {
+  // const { loading, error } = useQuery({
+  //   notifyOnNetworkStatusChange: true,
+  // })
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
   return (
     <div className="mb-8 font-roboto">
@@ -110,4 +110,4 @@ const Ewallet = () => {
   )
 }
 
-export default Ewallet
+export default EWallet

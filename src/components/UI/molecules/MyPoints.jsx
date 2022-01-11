@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TeksMyPoints = () => {
+const MyPoints = () => {
   return (
     <div className="flex md:w-3/6 flex-col justify-center md:text-left ml-16">
       <h1 className="text-2xl font-bold leading-tight text-purple font-poppins">
@@ -16,4 +16,4 @@ const TeksMyPoints = () => {
   )
 }
 
-export default TeksMyPoints
+export default MyPoints

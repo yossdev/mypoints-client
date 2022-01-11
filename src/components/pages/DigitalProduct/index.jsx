@@ -1,15 +1,15 @@
-import Loading from '../../atoms/Loading'
-import Error from '../../../pages/Error'
+// import Loading from '../../atoms/Loading'
+// import Error from '../../../pages/Error'
 
-import { useQuery } from '@apollo/client'
+// import { useQuery } from '@apollo/client'
 
-const PulsaData = () => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
+const DigitalProduct = () => {
+  // const { loading, error } = useQuery({
+  //   notifyOnNetworkStatusChange: true,
+  // })
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
   return (
     <div className="mb-8 font-roboto">
@@ -140,4 +140,4 @@ const PulsaData = () => {
   )
 }
 
-export default PulsaData
+export default DigitalProduct

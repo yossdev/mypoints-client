@@ -11,7 +11,6 @@ const useMypointsAuth = () => {
   const dispatch = useDispatch()
 
   const token = s.store.token
-
   if (s.store.token !== null) {
     const decoded = jwt_decode(token)
     if (decoded.exp * 1000 < Date.now()) {

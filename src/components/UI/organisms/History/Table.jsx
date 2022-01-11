@@ -1,15 +1,15 @@
-import Loading from '../../atoms/Loading'
-import Error from '../../../pages/Error'
+// import Loading from '../../atoms/Loading'
+// import Error from '../Error'
 
-import { useQuery } from '@apollo/client'
+// import { useQuery } from '@apollo/client'
 
 const Table = () => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
+  // const { loading, error } = useQuery({
+  //   notifyOnNetworkStatusChange: true,
+  // })
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
   return (
     <table className="w-full table-auto shadow-lg">

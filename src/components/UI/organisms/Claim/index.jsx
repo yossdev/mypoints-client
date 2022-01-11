@@ -1,18 +1,6 @@
 import flower from '../../../../assets/flower.svg'
 
-import Loading from '../../atoms/Loading'
-import Error from '../../../pages/Error'
-
-import { useQuery } from '@apollo/client'
-
-const Klaim = ({ product }) => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
-
-  if (loading) return <Loading />
-  if (error) return <Error />
-
+const Claim = ({ product }) => {
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto rounded-lg border border-gray-300 shadow-xl">
@@ -26,7 +14,7 @@ const Klaim = ({ product }) => {
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-state"
+                  htmlFor="grid-state"
                 >
                   Product
                 </label>
@@ -35,11 +23,10 @@ const Klaim = ({ product }) => {
                     name="produk"
                     className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
-                    <option disabled selected hidden>
-                      Products
-                    </option>
                     {product.map((product) => (
-                      <option>{product.nama}</option>
+                      <option key={product.id} value={product.nama}>
+                        {product.nama}
+                      </option>
                     ))}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -57,7 +44,7 @@ const Klaim = ({ product }) => {
               <div className="w-full md:w-1/3 px-3">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-last-name"
+                  htmlFor="grid-last-name"
                 >
                   Quantity
                 </label>
@@ -65,9 +52,10 @@ const Klaim = ({ product }) => {
                   name="qty"
                   className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   type="number"
-                  placeholder="12"
+                  placeholder="Qty"
                   min="0"
-                  oninput="validity.valid||(value=value.replace(/\D+/g, ''))"
+                  // TODO review ini!
+                  onInput="validity.valid||(value=value.replace(/\D+/g, ''))"
                 />
               </div>
             </div>
@@ -76,7 +64,7 @@ const Klaim = ({ product }) => {
               <div className="w-full px-3">
                 <label
                   className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
-                  for="grid-password"
+                  htmlFor="grid-password"
                 >
                   Faktur
                 </label>
@@ -105,4 +93,4 @@ const Klaim = ({ product }) => {
   )
 }
 
-export default Klaim
+export default Claim

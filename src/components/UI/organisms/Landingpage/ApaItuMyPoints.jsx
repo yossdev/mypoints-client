@@ -1,5 +1,5 @@
 import koin from '../../../../assets/koin.svg'
-import TeksMyPoints from '../../../UI/molecules/TeksMyPoints'
+import MyPoints from '../../../UI/molecules/MyPoints'
 
 const ApaItuMyPoints = () => {
   return (
@@ -15,7 +15,7 @@ const ApaItuMyPoints = () => {
       </div>
 
       {/* Right Col */}
-      <TeksMyPoints />
+      <MyPoints />
     </div>
   )
 }

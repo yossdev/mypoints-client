@@ -1,7 +1,5 @@
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
-import SelamatDatang from '../../UI/organisms/Dashboard/SelamatDatang'
-import Info from '../../UI/organisms/Dashboard/Info'
+import Greeting from '../../UI/organisms/Dashboard/Greeting'
+import Main from '../../UI/organisms/Dashboard/Main'
 import LatestHistory from '../../UI/organisms/Dashboard/LatestHistory'
 
 import { HomeIcon } from '@primer/octicons-react'
@@ -12,9 +10,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <HomeIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">/ Dashboard</span> <br />
@@ -29,8 +24,8 @@ const Dashboard = () => {
           padding: '20px',
         }}
       >
-        <SelamatDatang />
-        <Info />
+        <Greeting />
+        <Main />
         <LatestHistory />
       </div>
     </>

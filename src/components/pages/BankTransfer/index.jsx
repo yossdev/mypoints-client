@@ -1,26 +1,20 @@
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
-
-import Loading from '../../UI/atoms/Loading'
-import Error from '../../pages/Error'
+// import Loading from '../../UI/atoms/Loading'
+// import Error from '../../UI/organisms/Error'
 
 import { GiftIcon } from '@primer/octicons-react'
 
-import { useQuery } from '@apollo/client'
+// import { useQuery } from '@apollo/client'
 
 const Transfer = () => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
+  // const { loading, error } = useQuery({
+  //   notifyOnNetworkStatusChange: true,
+  // })
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <GiftIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">/ Redeems</span>

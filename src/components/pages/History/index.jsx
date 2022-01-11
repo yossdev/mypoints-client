@@ -10,9 +10,6 @@ const History = () => {
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <HourglassIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">
