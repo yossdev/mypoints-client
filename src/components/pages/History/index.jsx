@@ -1,13 +1,15 @@
 import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
+import Table from '../../UI/organisms/History/Table'
 
 import { HourglassIcon } from '@primer/octicons-react'
 
 const History = () => {
   document.title = 'History'
+  document.body.style = 'background: #EEEEEE;'
 
   return (
-    <div className="h-screen bg-grey">
+    <>
       <Sidebar />
       <UserMenu />
 
@@ -19,7 +21,18 @@ const History = () => {
         <br />
         <span className="text-md text-darkgrey font-bold">History</span>
       </div>
-    </div>
+
+      <div
+        style={{
+          marginTop: '17px',
+          width: '80%',
+          float: 'right',
+          padding: '20px',
+        }}
+      >
+        <Table />
+      </div>
+    </>
   )
 }
 
