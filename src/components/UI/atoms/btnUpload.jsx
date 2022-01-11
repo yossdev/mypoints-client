@@ -1,6 +1,6 @@
 const ButtonUpload = () => {
   return (
-    <button className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-32 rounded-md">
+    <button className="bg-purple hover:bg-darkpurple text-white text-sm font-roboto py-3 px-4 rounded-md">
       Upload Foto
     </button>
   )

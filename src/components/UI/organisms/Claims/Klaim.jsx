@@ -67,7 +67,7 @@ const Klaim = () => {
               </div>
             </div>
 
-            <p className="text-gray-600 text-xs italic">
+            <p className="text-purple text-md italic">
               Anda akan mendapatkan 600 MyPoints
             </p>
           </form>

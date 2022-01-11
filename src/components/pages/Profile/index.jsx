@@ -1,7 +1,7 @@
 import UserMenu from '../../UI/organisms/UserMenu'
 import Sidebar from '../../UI/organisms/Sidebar'
 import Avatar from '../../UI/organisms/Profile/Avatar'
-import EditProfile from '../../UI/organisms/Profile/EditProfile'
+// import EditProfile from '../../UI/organisms/Profile/EditProfile'
 
 import { PersonIcon } from '@primer/octicons-react'
 // import { useEffect } from 'react'
@@ -34,6 +34,7 @@ const Profile = () => {
       </div>
 
       <div
+        className="mx-auto"
         style={{
           marginTop: '17px',
           width: '80%',
@@ -42,8 +43,9 @@ const Profile = () => {
           display: 'inline',
         }}
       >
-        <Avatar />
-        <EditProfile />
+        <div className="mx-auto">
+          <Avatar />
+        </div>
       </div>
     </>
   )
