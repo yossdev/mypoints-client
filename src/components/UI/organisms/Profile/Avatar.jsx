@@ -1,6 +1,21 @@
 import ButtonUpload from '../../atoms/btnUpload'
 
+import Loading from '../../atoms/Loading'
+import Error from '../../../pages/Error'
+
+import { useQuery } from '@apollo/client'
+import { GET_AGENT } from '../../../../GraphQL/Query'
+
 const Avatar = () => {
+  const { data, loading, error } = useQuery(GET_AGENT, {
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading) return <Loading />
+  if (error) return <Error />
+
+  const agent = data.agents[0]
+
   return (
     <div
       style={{ width: '35%' }}
@@ -15,10 +30,7 @@ const Avatar = () => {
       </div>
 
       <div className="text-center px-3 pb-6 pt-2">
-        <h3 className="text-2xl text-purple bold font-roboto">Olivia Dunham</h3>
-        <p className="mt-2 font-roboto font-light">
-          Hello, i'm from another the other side!
-        </p>
+        <h3 className="text-2xl text-purple bold font-roboto">{agent.name}</h3>
       </div>
 
       <div className="flex justify-center py-3 border-t">
