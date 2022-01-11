@@ -9,14 +9,14 @@ const Profile = () => {
   document.title = 'Profile'
   document.body.style = 'background: #EEEEEE;'
 
-  const { data, loading, error } = useQuery(GET_AGENT, {
-    notifyOnNetworkStatusChange: true,
-  })
+  // const { data, loading, error } = useQuery(GET_AGENT, {
+  //   notifyOnNetworkStatusChange: true,
+  // })
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+  // if (loading) return <Loading />
+  // if (error) return <Error />
 
-  const agent = data.agents[0]
+  // const agent = data.agents[0]
 
   return (
     <>
