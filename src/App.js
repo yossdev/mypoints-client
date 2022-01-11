@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Homepage from './components/pages/Homepage'
 import Dashboard from './components/pages/Dashboard'
 import Claims from './components/pages/Claims'
-import Redeems from './components/pages/Redeems'
+import Transfer from './components/pages/BankTransfer'
 import History from './components/pages/History'
 import FAQ from './components/pages/FAQ'
 import Profile from './components/pages/Profile'
@@ -45,10 +45,10 @@ const App = () => {
           }
         />
         <Route
-          path="redeems"
+          path="redeems/bank-transfer"
           element={
             <PrivateRoute>
-              <Redeems />
+              <Transfer />
             </PrivateRoute>
           }
         />

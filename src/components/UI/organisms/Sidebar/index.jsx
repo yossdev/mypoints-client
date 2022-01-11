@@ -61,7 +61,7 @@ const Sidebar = () => {
               <div>
                 {' '}
                 <ul>
-                  <NavLink to="/redeems">
+                  <NavLink to="/redeems/bank-transfer">
                     <li className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
                       <div className="flex items-center">
                         <span className="text-md  ml-7">Bank Transfer</span>
