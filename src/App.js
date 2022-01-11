@@ -9,22 +9,66 @@ import FAQ from './components/pages/FAQ'
 import Profile from './components/pages/Profile'
 import Login from './components/pages/Login'
 import NotFound from './components/pages/NotFound'
+import PrivateRoute from './components/private/PrivateRoute'
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Pubic */}
+        {/* Public */}
         <Route path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
 
         {/* Private */}
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="claims" element={<Claims />} />
-        <Route path="redeems" element={<Redeems />} />
-        <Route path="history" element={<History />} />
-        <Route path="faq" element={<FAQ />} />
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="claims"
+          element={
+            <PrivateRoute>
+              <Claims />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="redeems"
+          element={
+            <PrivateRoute>
+              <Redeems />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="faq"
+          element={
+            <PrivateRoute>
+              <FAQ />
+            </PrivateRoute>
+          }
+        />
 
         {/* Public */}
         <Route path="*" element={<NotFound />} />
