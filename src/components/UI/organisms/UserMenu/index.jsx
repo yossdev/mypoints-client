@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 import { useDispatch } from 'react-redux'
 import { signOut } from '../../../../store/slice'
@@ -16,9 +16,13 @@ const UserMenu = () => {
   const client = useApolloClient()
   const dispatch = useDispatch()
 
+  let navigate = useNavigate()
+
   const handleSignOut = () => {
     client.resetStore()
     dispatch(signOut())
+
+    navigate('/login')
   }
 
   return (

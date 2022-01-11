@@ -1,6 +1,16 @@
-import React from 'react'
+import Loading from '../../atoms/Loading'
+import Error from '../../../pages/Error'
+
+import { useQuery } from '@apollo/client'
 
 const Table = () => {
+  const { loading, error } = useQuery({
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading) return <Loading />
+  if (error) return <Error />
+
   return (
     <table className="w-full table-auto shadow-lg">
       <thead>
