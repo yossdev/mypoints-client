@@ -1,4 +1,16 @@
+import Loading from '../../atoms/Loading'
+import Error from '../../../pages/Error'
+
+import { useQuery } from '@apollo/client'
+
 const PulsaData = () => {
+  const { loading, error } = useQuery({
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading) return <Loading />
+  if (error) return <Error />
+
   return (
     <div className="mb-8 font-roboto">
       <span className="block mb-2 text-2xl text-darkgrey font-bold">

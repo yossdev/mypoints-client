@@ -112,7 +112,7 @@ const Login = () => {
 
           {error && (
             <div className="text-sm text-center text-red italic">
-              Data ada yang salah, silahkan coba lagi!
+              Email atau Password salah, silahkan coba lagi!
             </div>
           )}
 

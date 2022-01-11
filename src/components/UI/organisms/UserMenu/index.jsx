@@ -22,7 +22,7 @@ const UserMenu = () => {
     client.resetStore()
     dispatch(signOut())
 
-    navigate('/login', { replace: true })
+    navigate('/login')
   }
 
   return (

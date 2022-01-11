@@ -43,10 +43,9 @@ const Avatar = () => {
 
         {foto ? (
           <div className="flex justify-center py-3 border-t">
-            <div className="text-center">
+            <div className="text-center inline-block">
               <input type="file" />
             </div>
-            <br />
             <ButtonUpload />
           </div>
         ) : null}
