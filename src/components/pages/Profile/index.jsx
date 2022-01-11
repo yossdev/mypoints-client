@@ -4,22 +4,19 @@ import Avatar from '../../UI/organisms/Profile/Avatar'
 // import EditProfile from '../../UI/organisms/Profile/EditProfile'
 
 import { PersonIcon } from '@primer/octicons-react'
-// import { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { store } from '../../../store/store'
 
 const Profile = () => {
   document.title = 'Profile'
   document.body.style = 'background: #EEEEEE;'
 
-  // const s = store.getState()
-  // const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   if (!loading && !s.store.authorized) {
-  //     navigate('/login', { replace: true })
-  //   }
+  // const { data, loading, error } = useQuery(GET_AGENT, {
+  //   notifyOnNetworkStatusChange: true,
   // })
+
+  // if (loading) return <Loading />
+  // if (error) return <Error />
+
+  // const agent = data.agents[0]
 
   return (
     <>

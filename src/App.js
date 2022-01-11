@@ -20,55 +20,15 @@ const App = () => {
         <Route path="login" element={<Login />} />
 
         {/* Private */}
-        <Route
-          path="dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="profile"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="claims"
-          element={
-            <PrivateRoute>
-              <Claims />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="redeems/bank-transfer"
-          element={
-            <PrivateRoute>
-              <Transfer />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="history"
-          element={
-            <PrivateRoute>
-              <History />
-            </PrivateRoute>
-          }
-        />
+        <Route element={<PrivateRoute />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="claims" element={<Claims />} />
+          <Route path="bank-transfer" element={<Transfer />} />
+          <Route path="history" element={<History />} />
 
-        <Route
-          path="faq"
-          element={
-            <PrivateRoute>
-              <FAQ />
-            </PrivateRoute>
-          }
-        />
+          <Route path="faq" element={<FAQ />} />
+        </Route>
 
         {/* Public */}
         <Route path="*" element={<NotFound />} />

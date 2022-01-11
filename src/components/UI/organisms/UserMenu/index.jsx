@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 import { useDispatch } from 'react-redux'
 import { signOut } from '../../../../store/slice'
+// import Loading from '../../atoms/Loading'
 
 import {
   ChevronDownIcon,
@@ -15,7 +16,6 @@ const UserMenu = () => {
 
   const client = useApolloClient()
   const dispatch = useDispatch()
-
   let navigate = useNavigate()
 
   const handleSignOut = () => {
@@ -58,13 +58,12 @@ const UserMenu = () => {
               </li>
 
               <li className="flex hover:bg-lightpurple cursor-pointer p-2">
-                <div className="flex items-center">
-                  <SignOutIcon size={16} fill="#5C5C5C" />
-
-                  <span className="text-sm ml-2">
-                    <button onClick={() => handleSignOut()}>Log out</button>
-                  </span>
-                </div>
+                <button onClick={handleSignOut}>
+                  <div className="flex items-center">
+                    <SignOutIcon size={16} fill="#5C5C5C" />
+                    <span className="text-sm ml-2">Log out</span>
+                  </div>
+                </button>
               </li>
             </ul>
           </div>
