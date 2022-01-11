@@ -7,9 +7,9 @@ import EditProfile from '../../UI/organisms/Profile/EditProfile'
 import { useQuery } from '@apollo/client'
 import { GET_AGENT } from '../../../GraphQL/Query'
 import { PersonIcon } from '@primer/octicons-react'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { store } from '../../../store/store'
+// import { useEffect } from 'react'
+// import { useNavigate } from 'react-router-dom'
+// import { store } from '../../../store/store'
 
 const Profile = () => {
   document.title = 'Profile'
@@ -19,14 +19,14 @@ const Profile = () => {
     notifyOnNetworkStatusChange: true,
   })
 
-  const s = store.getState()
-  const navigate = useNavigate()
+  // const s = store.getState()
+  // const navigate = useNavigate()
 
-  useEffect(() => {
-    if (!loading && !s.store.authorized) {
-      navigate('/login', { replace: true })
-    }
-  })
+  // useEffect(() => {
+  //   if (!loading && !s.store.authorized) {
+  //     navigate('/login', { replace: true })
+  //   }
+  // })
 
   if (loading) return <Loading />
   if (error) return <h1>Error...</h1>

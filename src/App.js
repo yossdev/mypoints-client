@@ -9,31 +9,68 @@ import FAQ from './components/pages/FAQ'
 import Profile from './components/pages/Profile'
 import Login from './components/pages/Login'
 import NotFound from './components/pages/NotFound'
+import PrivateRoute from './components/private/PrivateRoute'
 
 const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Public */}
         <Route path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
 
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="profile" element={<Profile />} />
+        {/* Private */}
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="claims"
+          element={
+            <PrivateRoute>
+              <Claims />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="redeems"
+          element={
+            <PrivateRoute>
+              <Redeems />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
 
-        <Route path="claims" element={<Claims />} />
-        <Route path="redeems" element={<Redeems />} />
+        <Route
+          path="faq"
+          element={
+            <PrivateRoute>
+              <FAQ />
+            </PrivateRoute>
+          }
+        />
 
-        {/* Dropdownnya dijadiin route aja atau biar cepat dihapus aja dropdownnya */}
-        {/* <Route path="/redeems" element={<Redeems />}>
-          <Route index element={<Redeems />} />
-          <Route path="bank-transfer" element={<Redeems />} />
-          <Route path="e-wallet" element={<Redeems />} />
-          <Route path="top-up" element={<Redeems />} />
-        </Route> */}
-
-        <Route path="history" element={<History />} />
-        <Route path="faq" element={<FAQ />} />
-
+        {/* Public */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
