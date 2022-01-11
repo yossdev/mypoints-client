@@ -4,21 +4,21 @@ export const slice = createSlice({
   name: 'store',
   initialState: {
     token: null,
-    authorized: false,
+    isAuthenticated: false,
   },
   reducers: {
     storeJwt: (state, action) => {
       state.token = action.payload
     },
-    isAuthorized: (state, action) => {
-      state.authorized = action.payload
+    isAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload
     },
     signOut: (state) => {
       state.token = null
-      state.authorized = false
+      state.isAuthenticated = false
     },
   },
 })
 
-export const { storeJwt, signOut, isAuthorized } = slice.actions
+export const { storeJwt, signOut, isAuthenticated } = slice.actions
 export default slice.reducer

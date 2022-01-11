@@ -8,9 +8,6 @@ import Error from '../Error'
 import { useQuery } from '@apollo/client'
 import { GET_AGENT } from '../../../GraphQL/Query'
 import { PersonIcon } from '@primer/octicons-react'
-// import { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { store } from '../../../store/store'
 
 const Profile = () => {
   document.title = 'Profile'
@@ -19,15 +16,6 @@ const Profile = () => {
   const { data, loading, error } = useQuery(GET_AGENT, {
     notifyOnNetworkStatusChange: true,
   })
-
-  // const s = store.getState()
-  // const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   if (!loading && !s.store.authorized) {
-  //     navigate('/login', { replace: true })
-  //   }
-  // })
 
   if (loading) return <Loading />
   if (error) return <Error />
