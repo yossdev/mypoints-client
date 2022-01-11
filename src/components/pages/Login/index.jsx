@@ -4,6 +4,7 @@ import axios from 'axios'
 import { isAuthorized, storeJwt } from '../../../store/slice'
 import { useDispatch } from 'react-redux'
 import { store } from '../../../store/store'
+import Loading from '../../UI/atoms/Loading'
 
 import logo from '../../../assets/logo.svg'
 import agent from '../../../assets/agent.svg'
@@ -62,7 +63,7 @@ const Login = () => {
     }
   })
 
-  if (loading) return <h1>loading...</h1>
+  if (loading) return <Loading />
 
   return (
     <div className="flex items-center">

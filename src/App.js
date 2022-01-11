@@ -14,26 +14,19 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Pubic */}
         <Route path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
 
+        {/* Private */}
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
-
         <Route path="claims" element={<Claims />} />
         <Route path="redeems" element={<Redeems />} />
-
-        {/* Dropdownnya dijadiin route aja atau biar cepat dihapus aja dropdownnya */}
-        {/* <Route path="/redeems" element={<Redeems />}>
-          <Route index element={<Redeems />} />
-          <Route path="bank-transfer" element={<Redeems />} />
-          <Route path="e-wallet" element={<Redeems />} />
-          <Route path="top-up" element={<Redeems />} />
-        </Route> */}
-
         <Route path="history" element={<History />} />
         <Route path="faq" element={<FAQ />} />
 
+        {/* Public */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

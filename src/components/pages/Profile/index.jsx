@@ -3,6 +3,7 @@ import Sidebar from '../../UI/organisms/Sidebar'
 import Loading from '../../UI/atoms/Loading'
 import Avatar from '../../UI/organisms/Profile/Avatar'
 import EditProfile from '../../UI/organisms/Profile/EditProfile'
+import Error from '../Error'
 
 import { useQuery } from '@apollo/client'
 import { GET_AGENT } from '../../../GraphQL/Query'
@@ -29,7 +30,7 @@ const Profile = () => {
   })
 
   if (loading) return <Loading />
-  if (error) return <h1>Error...</h1>
+  if (error) return <Error />
 
   const agent = data.agents[0]
 
