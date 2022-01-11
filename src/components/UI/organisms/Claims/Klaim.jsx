@@ -1,4 +1,18 @@
-const Klaim = () => {
+import flower from '../../../../assets/flower.svg'
+
+import Loading from '../../atoms/Loading'
+import Error from '../../../pages/Error'
+
+import { useQuery } from '@apollo/client'
+
+const Klaim = ({ product }) => {
+  const { loading, error } = useQuery({
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading) return <Loading />
+  if (error) return <Error />
+
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto rounded-lg border border-gray-300 shadow-xl">
@@ -18,12 +32,15 @@ const Klaim = () => {
                 </label>
                 <div className="relative">
                   <select
+                    name="produk"
                     className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-state"
                   >
-                    <option>New Mexico</option>
-                    <option>Missouri</option>
-                    <option>Texas</option>
+                    <option disabled selected hidden>
+                      Products
+                    </option>
+                    {product.map((product) => (
+                      <option>{product.nama}</option>
+                    ))}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg
@@ -45,10 +62,12 @@ const Klaim = () => {
                   Quantity
                 </label>
                 <input
+                  name="qty"
                   className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-last-name"
-                  type="text"
-                  placeholder="Doe"
+                  type="number"
+                  placeholder="12"
+                  min="0"
+                  oninput="validity.valid||(value=value.replace(/\D+/g, ''))"
                 />
               </div>
             </div>
@@ -56,19 +75,22 @@ const Klaim = () => {
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3">
                 <label
-                  className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
                   for="grid-password"
                 >
                   Faktur
                 </label>
-                <button className="ml-4 px-4 py-2 text-gray-600 text-sm font-semibold bg-grey rounded">
-                  Upload File
-                </button>
+                <input className="inline" type="file" id="formFile" />
               </div>
             </div>
 
-            <p className="text-gray-600 text-xs italic">
-              Anda akan mendapatkan 600 MyPoints
+            <p className="text-purple text-lg italic">
+              Anda akan mendapatkan 600
+              <img
+                alt="flower-icon"
+                src={flower}
+                className="inline w-6 ml-1 mb-1 rounded-full"
+              />
             </p>
           </form>
         </div>

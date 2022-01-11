@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Homepage from './components/pages/Homepage'
 import Dashboard from './components/pages/Dashboard'
 import Claims from './components/pages/Claims'
-import Redeems from './components/pages/Redeems'
+import Transfer from './components/pages/BankTransfer'
 import History from './components/pages/History'
 import FAQ from './components/pages/FAQ'
 import Profile from './components/pages/Profile'
@@ -20,55 +20,15 @@ const App = () => {
         <Route path="login" element={<Login />} />
 
         {/* Private */}
-        <Route
-          path="dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="profile"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="claims"
-          element={
-            <PrivateRoute>
-              <Claims />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="redeems"
-          element={
-            <PrivateRoute>
-              <Redeems />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="history"
-          element={
-            <PrivateRoute>
-              <History />
-            </PrivateRoute>
-          }
-        />
+        <Route element={<PrivateRoute />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="claims" element={<Claims />} />
+          <Route path="bank-transfer" element={<Transfer />} />
+          <Route path="history" element={<History />} />
 
-        <Route
-          path="faq"
-          element={
-            <PrivateRoute>
-              <FAQ />
-            </PrivateRoute>
-          }
-        />
+          <Route path="faq" element={<FAQ />} />
+        </Route>
 
         {/* Public */}
         <Route path="*" element={<NotFound />} />
