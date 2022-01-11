@@ -74,8 +74,6 @@ const Login = () => {
             Selamat Datang Para Agen
           </h3>
 
-          {error && <h1>ga berhasil login...</h1>}
-
           <div>
             <label
               htmlFor="email"
@@ -111,6 +109,13 @@ const Login = () => {
               required
             />
           </div>
+
+          {error && (
+            <div className="text-sm text-center text-red italic">
+              Data ada yang salah, silahkan coba lagi!
+            </div>
+          )}
+
           <button
             type="submit"
             className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

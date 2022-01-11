@@ -15,11 +15,11 @@ const EditProfile = () => {
 
       <div className="border-b"></div>
 
-      <form class="px-8 pt-6 pb-8 justify-center mb-4 bg-white rounded">
+      <form className="px-8 pt-6 pb-8 justify-center mb-4 bg-white rounded">
         <div className="mb-4">
           <label
             className="block mb-2 text-sm font-bold text-purple font-roboto text-gray-700"
-            for="email"
+            htmlFor="email"
           >
             Nama Agen
           </label>
