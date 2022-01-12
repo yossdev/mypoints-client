@@ -1,15 +1,17 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import axios from 'axios'
-import { isAuthenticated, storeJwt } from '../../../store/slice'
-import { useDispatch } from 'react-redux'
-import { store } from '../../../store/store'
-import Loading from '../../UI/atoms/Loading'
 
 import logo from '../../../assets/logo.svg'
 import agent from '../../../assets/agent.svg'
 
-const baseURL = 'https://server.mypoints.site/api/v1/login'
+import { isAuthenticated, storeJwt } from '../../../store/slice'
+import { useDispatch } from 'react-redux'
+import { store } from '../../../store/store'
+
+import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+
+const api = 'https://server.mypoints.site/api/v1/login'
 
 const Login = () => {
   document.title = 'Login'
@@ -37,7 +39,7 @@ const Login = () => {
     e.preventDefault()
     setLoading(true)
     axios
-      .post(baseURL, reqBody)
+      .post(api, reqBody)
       .then(function (response) {
         // dispatch redux untuk simpan jwt access token saat berhasil login
         const accessToken = response.data.data.access_token
@@ -46,7 +48,6 @@ const Login = () => {
       })
       .catch(function (err) {
         setError(err)
-        // console.log('ada error', err)
       })
       .finally(() => {
         setLoading(false)
@@ -72,7 +73,7 @@ const Login = () => {
     }
   })
 
-  if (loading) return <Loading />
+  if (loading) return <MainLoading />
 
   return (
     <div className="flex items-center">
@@ -96,7 +97,7 @@ const Login = () => {
               name="email"
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-              placeholder="name@company.com"
+              placeholder="name@mail.com"
               required
             />
           </div>

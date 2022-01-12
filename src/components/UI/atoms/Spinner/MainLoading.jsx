@@ -1,6 +1,6 @@
 import HashLoader from 'react-spinners/HashLoader'
 
-const Loading = () => {
+const MainLoading = () => {
   return (
     <div className="flex justify-center items-center h-screen w-full">
       <HashLoader color={'#5F2788'} loading={true} size={150} />
@@ -8,4 +8,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default MainLoading

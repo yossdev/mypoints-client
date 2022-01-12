@@ -7,6 +7,7 @@ import Footer from '../../UI/organisms/Landingpage/Footer'
 
 const Homepage = () => {
   document.title = 'MyPoints'
+  document.body.style = 'background: #FFFFFF;'
 
   return (
     <>

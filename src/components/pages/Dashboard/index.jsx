@@ -1,12 +1,36 @@
+import { HomeIcon } from '@primer/octicons-react'
 import Greeting from '../../UI/organisms/Dashboard/Greeting'
 import Main from '../../UI/organisms/Dashboard/Main'
 import LatestHistory from '../../UI/organisms/Dashboard/LatestHistory'
+import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+import Error from '../../UI/organisms/Error'
 
-import { HomeIcon } from '@primer/octicons-react'
+import { useQuery } from '@apollo/client'
+import {
+  GET_MAIN_DASHBOARD,
+  GET_RECENT_TRANSACTIONS,
+} from '../../../GraphQL/Query'
 
 const Dashboard = () => {
   document.title = 'Dashboard'
   document.body.style = 'background: #EEEEEE;'
+
+  const { data, loading, error } = useQuery(GET_MAIN_DASHBOARD, {
+    notifyOnNetworkStatusChange: true,
+  })
+
+  const {
+    data: recentTransaction,
+    loading: loadingTransaction,
+    error: errorTransaction,
+  } = useQuery(GET_RECENT_TRANSACTIONS, {
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading || loadingTransaction) return <MainLoading />
+  if (error || errorTransaction) return <Error />
+
+  const agent = data.agents[0]
 
   return (
     <>
@@ -25,8 +49,8 @@ const Dashboard = () => {
         }}
       >
         <Greeting />
-        <Main />
-        <LatestHistory />
+        <Main data={agent} />
+        <LatestHistory data={recentTransaction} />
       </div>
     </>
   )

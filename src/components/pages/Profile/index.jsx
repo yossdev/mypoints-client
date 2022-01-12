@@ -1,7 +1,6 @@
-import Agent from '../../UI/organisms/Profile'
-
 import { PersonIcon } from '@primer/octicons-react'
-import Loading from '../../UI/atoms/Loading'
+import Agent from '../../UI/organisms/Profile'
+import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
 
 import { useQuery } from '@apollo/client'
@@ -15,7 +14,7 @@ const Profile = () => {
     notifyOnNetworkStatusChange: true,
   })
 
-  if (loading) return <Loading />
+  if (loading) return <MainLoading />
   if (error) return <Error />
 
   const agent = data.agents[0]

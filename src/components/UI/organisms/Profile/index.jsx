@@ -1,16 +1,14 @@
 import { useState } from 'react'
 
 import ButtonUpload from '../../atoms/Button/Upload'
-import ShowUpload from '../../atoms/Button/ShowUpload'
-import ShowEditProfile from '../../atoms/Button/ShowEditProfile'
 import EditProfile from './EditProfile'
 
 const Profile = (props) => {
-  const [editProfile, setEditProfile] = useState(false)
-  const [editPhoto, setEditPhoto] = useState(false)
-
   const name =
     props.agent.name.charAt(0).toUpperCase() + props.agent.name.slice(1)
+
+  const [editProfile, setEditProfile] = useState(false)
+  const [editPhoto, setEditPhoto] = useState(false)
 
   return (
     <>
@@ -41,12 +39,23 @@ const Profile = (props) => {
           </h3>
         </div>
 
-        <div>
-          <ShowUpload onClick={() => setEditPhoto(!editPhoto)} />
+        <div className="border-t-2 py-3">
+          <p
+            onClick={() => setEditPhoto(!editPhoto)}
+            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-3 rounded-md cursor-pointer"
+          >
+            Upload Foto
+          </p>
 
-          <ShowEditProfile onClick={() => setEditProfile(!editProfile)} />
+          <p
+            onClick={() => setEditProfile(!editProfile)}
+            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-3 rounded-md cursor-pointer"
+          >
+            Edit Profile
+          </p>
         </div>
 
+        {/* TODO */}
         {editPhoto ? (
           <div className="flex justify-center py-3 border-t">
             <div className="text-center inline-block">

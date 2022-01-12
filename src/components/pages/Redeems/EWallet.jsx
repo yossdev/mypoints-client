@@ -1,7 +1,7 @@
-// import Loading from '../../UI/atoms/Loading'
+// import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 // import Error from '../../UI/organisms/Error'
 
-import gift from '../../../assets/gifts.svg'
+// import gift from '../../../assets/gifts.svg'
 import { GiftIcon } from '@primer/octicons-react'
 
 // import { useQuery } from '@apollo/client'
@@ -14,7 +14,7 @@ const EWallet = () => {
   //   notifyOnNetworkStatusChange: true,
   // })
 
-  // if (loading) return <Loading />
+  // if (loading) return <MainLoading />
   // if (error) return <Error />
 
   return (
@@ -40,6 +40,7 @@ const EWallet = () => {
             className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
           >
             <div className="flex mx-auto w-16 justify-center mt-8">
+              {/* TODO */}
               {/* {reward.img !== '' ? (
                 <img
                   alt="reward icon"

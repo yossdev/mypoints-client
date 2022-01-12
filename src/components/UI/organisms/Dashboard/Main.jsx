@@ -1,6 +1,6 @@
 import flower from '../../../../assets/flower.svg'
 
-const Main = () => {
+const Main = (props) => {
   return (
     <div className="mb-8 font-roboto">
       <div
@@ -12,12 +12,10 @@ const Main = () => {
             <p className="my-2 text-sm font-roboto text-darkgrey">
               TOTAL POINT
             </p>
-
             <h3 className="text-4xl text-purple font-bold font-poppins">
-              10.000
+              {props.data.points}
             </h3>
           </div>
-
           <img
             alt="uang"
             src={flower}
@@ -35,12 +33,12 @@ const Main = () => {
             <p className="my-2 text-sm font-roboto text-darkgrey">
               TOTAL TRANSAKSI
             </p>
-
             <h3 className="text-4xl text-purple font-bold font-poppins">
-              10 x
+              {props.data.claims.aggregate.count +
+                props.data.redeems.aggregate.count}{' '}
+              x
             </h3>
           </div>
-
           <img
             alt="uang"
             src={flower}
@@ -58,10 +56,10 @@ const Main = () => {
             <p className="my-2 text-sm font-roboto text-darkgrey">
               TOTAL KLAIM
             </p>
-
-            <h3 className="text-4xl text-purple font-bold font-poppins">5 x</h3>
+            <h3 className="text-4xl text-purple font-bold font-poppins">
+              {props.data.claims.aggregate.count} x
+            </h3>
           </div>
-
           <img
             alt="uang"
             src={flower}
@@ -79,10 +77,10 @@ const Main = () => {
             <p className="my-2 text-sm font-roboto text-darkgrey">
               TOTAL REDEEM
             </p>
-
-            <h3 className="text-4xl text-purple font-bold font-poppins">5 x</h3>
+            <h3 className="text-4xl text-purple font-bold font-poppins">
+              {props.data.redeems.aggregate.count} x
+            </h3>
           </div>
-
           <img
             alt="uang"
             src={flower}

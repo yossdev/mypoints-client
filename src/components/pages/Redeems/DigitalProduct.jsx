@@ -1,20 +1,21 @@
-// import Loading from '../../UI/atoms/Loading'
-// import Error from '../../UI/organisms/Error'
-
-import gift from '../../../assets/gifts.svg'
+// import gift from '../../../assets/gifts.svg'
 import { GiftIcon } from '@primer/octicons-react'
 
 // import { useQuery } from '@apollo/client'
+// import { GET_REWARD } from '../../../GraphQL/Query'
+
+// import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+// import Error from '../../UI/organisms/Error'
 
 const DigitalProduct = () => {
   document.title = 'Profile'
   document.body.style = 'background: #EEEEEE;'
 
-  // const { data, loading, error } = useQuery({
+  // const { data, loading, error } = useQuery(GET_REWARD, {
   //   notifyOnNetworkStatusChange: true,
   // })
 
-  // if (loading) return <Loading />
+  // if (loading) return <MainLoading />
   // if (error) return <Error />
 
   return (
@@ -40,6 +41,7 @@ const DigitalProduct = () => {
             className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
           >
             <div className="flex mx-auto w-16 justify-center mt-8">
+              {/* TODO */}
               {/* {reward.img !== '' ? (
                 <img
                   alt="reward icon"

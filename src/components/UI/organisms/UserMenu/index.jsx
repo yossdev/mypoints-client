@@ -21,7 +21,7 @@ const UserMenu = (props) => {
     client.resetStore()
     dispatch(signOut())
 
-    navigate('/login')
+    navigate('/')
   }
 
   return (

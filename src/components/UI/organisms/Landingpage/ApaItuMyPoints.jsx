@@ -1,4 +1,4 @@
-import koin from '../../../../assets/koin.svg'
+import coin from '../../../../assets/koin.svg'
 import MyPoints from '../../../UI/molecules/MyPoints'
 
 const ApaItuMyPoints = () => {
@@ -9,7 +9,7 @@ const ApaItuMyPoints = () => {
         <img
           className="lg:flex lg:items-stretch lg:justify-end"
           alt="koin mypoints"
-          src={koin}
+          src={coin}
           width={600}
         />
       </div>

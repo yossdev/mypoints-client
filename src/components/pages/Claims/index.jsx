@@ -1,12 +1,21 @@
-import Claim from '../../UI/organisms/Claim'
-
-import { Products } from '../../UI/organisms/Claim/MockProduct'
-
 import { TagIcon } from '@primer/octicons-react'
+import Claim from '../../UI/organisms/Claim'
+import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+import Error from '../../UI/organisms/Error'
+
+import { useQuery } from '@apollo/client'
+import { GET_PRODUCT } from '../../../GraphQL/Query'
 
 const Claims = () => {
   document.title = 'Claims'
   document.body.style = 'background: #EEEEEE;'
+
+  const { data, loading, error } = useQuery(GET_PRODUCT, {
+    notifyOnNetworkStatusChange: true,
+  })
+
+  if (loading) return <MainLoading />
+  if (error) return <Error />
 
   return (
     <>
@@ -24,7 +33,7 @@ const Claims = () => {
           padding: '20px',
         }}
       >
-        <Claim product={Products} />
+        <Claim data={data.products} />
       </div>
     </>
   )

@@ -16,14 +16,6 @@ const FAQ = () => {
 
   const [faq, setFaq] = useState(Questions)
 
-  // // TODO refactor ini
-  // const [jawab1, setJawab1] = useState(false)
-  // const [jawab2, setJawab2] = useState(false)
-  // const [jawab3, setJawab3] = useState(false)
-  // const [jawab4, setJawab4] = useState(false)
-  // const [jawab5, setJawab5] = useState(false)
-  // const [jawab6, setJawab6] = useState(false)
-
   return (
     <>
       <div className="ml-80 pt-3 font-roboto">

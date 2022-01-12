@@ -1,6 +1,36 @@
 import flower from '../../../../assets/flower.svg'
+import { useState } from 'react'
 
-const Claim = ({ product }) => {
+const Claim = (props) => {
+  const [points, setPoints] = useState(0)
+
+  const [image, setImage] = useState('')
+  const [url, setUrl] = useState('')
+
+  // upload image to cloudinary
+  const handleUpload = (e) => {
+    e.preventDefault()
+
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', 'mypoints_media')
+    data.append('cloud_name', 'mypoints')
+
+    fetch('https://api.cloudinary.com/v1_1/mypoints/image/upload', {
+      method: 'post',
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUrl(data.url)
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const handleChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto rounded-lg border border-gray-300 shadow-xl">
@@ -9,7 +39,7 @@ const Claim = ({ product }) => {
         </div>
 
         <div className="flex flex-col px-6 py-5 bg-gray-50">
-          <form className="w-full max-w-lg">
+          <form onSubmit={handleUpload} className="w-full max-w-lg">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
                 <label
@@ -23,9 +53,14 @@ const Claim = ({ product }) => {
                     name="produk"
                     className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
-                    {product.map((product) => (
-                      <option key={product.id} value={product.nama}>
-                        {product.nama}
+                    {/* TODO */}
+                    {props.data.map((product) => (
+                      <option
+                        onSelect={() => setPoints(product.points)}
+                        key={product.id}
+                        value={product.title}
+                      >
+                        {product.title}
                       </option>
                     ))}
                   </select>
@@ -53,9 +88,7 @@ const Claim = ({ product }) => {
                   className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   type="number"
                   placeholder="Qty"
-                  min="0"
-                  // TODO review ini!
-                  onInput="validity.valid||(value=value.replace(/\D+/g, ''))"
+                  min="1"
                 />
               </div>
             </div>
@@ -68,26 +101,30 @@ const Claim = ({ product }) => {
                 >
                   Faktur
                 </label>
-                <input className="inline" type="file" id="formFile" />
+                <input className="inline" type="file" onChange={handleChange} />
               </div>
             </div>
 
             <p className="text-purple text-lg italic">
-              Anda akan mendapatkan 600
+              Anda akan mendapatkan {points}{' '}
               <img
                 alt="flower-icon"
                 src={flower}
                 className="inline w-6 ml-1 mb-1 rounded-full"
               />
             </p>
+            <div className="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
+              <button
+                type="submit"
+                className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded"
+              >
+                Kirim
+              </button>
+            </div>
           </form>
         </div>
-
-        <div className="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
-          <button className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded">
-            Kirim
-          </button>
-        </div>
+        {/* TODO Test image */}
+        <img src={url} alt="img" />
       </div>
     </div>
   )
