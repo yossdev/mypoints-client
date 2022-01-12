@@ -1,17 +1,35 @@
 import flower from '../../../../assets/flower.svg'
+import { useState } from 'react'
 
-import Loading from '../../atoms/Loading'
-import Error from '../../../pages/Error'
+const Claim = (props) => {
+  const [points, setPoints] = useState(0)
 
-import { useQuery } from '@apollo/client'
+  const [image, setImage] = useState('')
+  const [url, setUrl] = useState('')
 
-const Klaim = ({ product }) => {
-  const { loading, error } = useQuery({
-    notifyOnNetworkStatusChange: true,
-  })
+  // upload image to cloudinary
+  const handleUpload = (e) => {
+    e.preventDefault()
 
-  if (loading) return <Loading />
-  if (error) return <Error />
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', 'mypoints_media')
+    data.append('cloud_name', 'mypoints')
+
+    fetch('https://api.cloudinary.com/v1_1/mypoints/image/upload', {
+      method: 'post',
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUrl(data.url)
+      })
+      .catch((err) => console.log(err))
+  }
+
+  const handleChange = (e) => {
+    setImage(e.target.files[0])
+  }
 
   return (
     <div className="flex justify-center items-center">
@@ -21,12 +39,12 @@ const Klaim = ({ product }) => {
         </div>
 
         <div className="flex flex-col px-6 py-5 bg-gray-50">
-          <form className="w-full max-w-lg">
+          <form onSubmit={handleUpload} className="w-full max-w-lg">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-state"
+                  htmlFor="grid-state"
                 >
                   Product
                 </label>
@@ -35,11 +53,15 @@ const Klaim = ({ product }) => {
                     name="produk"
                     className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
-                    <option disabled selected hidden>
-                      Products
-                    </option>
-                    {product.map((product) => (
-                      <option>{product.nama}</option>
+                    {/* TODO */}
+                    {props.data.map((product) => (
+                      <option
+                        onSelect={() => setPoints(product.points)}
+                        key={product.id}
+                        value={product.title}
+                      >
+                        {product.title}
+                      </option>
                     ))}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -57,7 +79,7 @@ const Klaim = ({ product }) => {
               <div className="w-full md:w-1/3 px-3">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-last-name"
+                  htmlFor="grid-last-name"
                 >
                   Quantity
                 </label>
@@ -65,9 +87,8 @@ const Klaim = ({ product }) => {
                   name="qty"
                   className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   type="number"
-                  placeholder="12"
-                  min="0"
-                  oninput="validity.valid||(value=value.replace(/\D+/g, ''))"
+                  placeholder="Qty"
+                  min="1"
                 />
               </div>
             </div>
@@ -76,33 +97,37 @@ const Klaim = ({ product }) => {
               <div className="w-full px-3">
                 <label
                   className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
-                  for="grid-password"
+                  htmlFor="grid-password"
                 >
                   Faktur
                 </label>
-                <input className="inline" type="file" id="formFile" />
+                <input className="inline" type="file" onChange={handleChange} />
               </div>
             </div>
 
             <p className="text-purple text-lg italic">
-              Anda akan mendapatkan 600
+              Anda akan mendapatkan {points}{' '}
               <img
                 alt="flower-icon"
                 src={flower}
                 className="inline w-6 ml-1 mb-1 rounded-full"
               />
             </p>
+            <div className="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
+              <button
+                type="submit"
+                className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded"
+              >
+                Kirim
+              </button>
+            </div>
           </form>
         </div>
-
-        <div className="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
-          <button className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded">
-            Kirim
-          </button>
-        </div>
+        {/* TODO Test image */}
+        <img src={url} alt="img" />
       </div>
     </div>
   )
 }
 
-export default Klaim
+export default Claim

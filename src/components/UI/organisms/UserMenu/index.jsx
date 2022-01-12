@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 import { useDispatch } from 'react-redux'
 import { signOut } from '../../../../store/slice'
-// import Loading from '../../atoms/Loading'
 
 import {
   ChevronDownIcon,
@@ -11,7 +10,7 @@ import {
   SignOutIcon,
 } from '@primer/octicons-react'
 
-const UserMenu = () => {
+const UserMenu = (props) => {
   const [menu, setMenu] = useState(false)
 
   const client = useApolloClient()
@@ -22,7 +21,7 @@ const UserMenu = () => {
     client.resetStore()
     dispatch(signOut())
 
-    navigate('/login')
+    navigate('/')
   }
 
   return (
@@ -32,14 +31,18 @@ const UserMenu = () => {
           onClick={() => setMenu(!menu)}
           className="flex ml-10 cursor-pointer items-center"
         >
-          <img
-            alt="avatar"
-            className="mr-2"
-            src={
-              'https://kredithptangcity.com/wp-content/uploads/2020/11/user.png'
-            }
-            width={35}
-          />
+          {props.img !== '' ? (
+            <img alt="avatar" className="mr-2" src={props.img} width={35} />
+          ) : (
+            <img
+              alt="avatar"
+              className="mr-2"
+              src={
+                'https://kredithptangcity.com/wp-content/uploads/2020/11/user.png'
+              }
+              width={35}
+            />
+          )}
 
           <ChevronDownIcon size={20} fill="#5C5C5C" />
         </div>

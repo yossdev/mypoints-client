@@ -1,28 +1,26 @@
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
-import Avatar from '../../UI/organisms/Profile/Avatar'
-// import EditProfile from '../../UI/organisms/Profile/EditProfile'
-
 import { PersonIcon } from '@primer/octicons-react'
+import Agent from '../../UI/organisms/Profile'
+import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+import Error from '../../UI/organisms/Error'
+
+import { useQuery } from '@apollo/client'
+import { GET_AGENT } from '../../../GraphQL/Query'
 
 const Profile = () => {
   document.title = 'Profile'
   document.body.style = 'background: #EEEEEE;'
 
-  // const { data, loading, error } = useQuery(GET_AGENT, {
-  //   notifyOnNetworkStatusChange: true,
-  // })
+  const { data, loading, error } = useQuery(GET_AGENT, {
+    notifyOnNetworkStatusChange: true,
+  })
 
-  // if (loading) return <Loading />
-  // if (error) return <Error />
+  if (loading) return <MainLoading />
+  if (error) return <Error />
 
-  // const agent = data.agents[0]
+  const agent = data.agents[0]
 
   return (
     <>
-      <Sidebar />
-      <UserMenu />
-
       <div className="ml-80 pt-3 font-roboto">
         <PersonIcon size={16} fill="darkgrey" />
         <span className="text-sm ml-2 text-darkgrey">/ Agent Profile</span>
@@ -41,7 +39,7 @@ const Profile = () => {
         }}
       >
         <div className="mx-auto">
-          <Avatar />
+          <Agent agent={agent} />
         </div>
       </div>
     </>
