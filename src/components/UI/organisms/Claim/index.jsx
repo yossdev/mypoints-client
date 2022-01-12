@@ -22,6 +22,7 @@ const Claim = (props) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
+        // TODO call mypoints server here
         setUrl(data.url)
       })
       .catch((err) => console.log(err))
