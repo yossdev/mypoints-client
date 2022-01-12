@@ -25,7 +25,7 @@ const Greeting = () => {
           Selamat Datang, {name}
         </h3>
         <p className="mt-2 font-roboto font-light">
-          Hello, i'm from another the other side!
+          Hallo, semoga harimu menyenangkan ya ..
         </p>
       </div>
     </div>

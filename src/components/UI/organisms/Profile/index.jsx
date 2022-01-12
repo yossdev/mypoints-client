@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import ButtonUpload from '../../atoms/Button/Upload'
+import ShowUpload from '../../atoms/Button/ShowUpload'
+import ShowEditProfile from '../../atoms/Button/ShowEditProfile'
 import EditProfile from './EditProfile'
 
 const Profile = (props) => {
@@ -40,19 +42,9 @@ const Profile = (props) => {
         </div>
 
         <div>
-          <p
-            onClick={() => setEditPhoto(!editPhoto)}
-            className="text-center mb-4 text-sm text-blue-500 cursor-pointer hover:underline hover:text-blue-800"
-          >
-            Edit Foto?
-          </p>
+          <ShowUpload onClick={() => setEditPhoto(!editPhoto)} />
 
-          <p
-            onClick={() => setEditProfile(!editProfile)}
-            className="text-center mb-4 text-sm text-blue-500 cursor-pointer hover:underline hover:text-blue-800"
-          >
-            Edit Profile?
-          </p>
+          <ShowEditProfile onClick={() => setEditProfile(!editProfile)} />
         </div>
 
         {editPhoto ? (

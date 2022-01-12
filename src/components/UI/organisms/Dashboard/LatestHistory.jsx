@@ -2,7 +2,7 @@ import React from 'react'
 
 const LatestHistory = () => {
   return (
-    <table className="w-full table-auto shadow-lg">
+    <table className="w-full shadow-lg">
       <thead>
         <tr>
           <th className="rounded-tl-lg px-10 py-3 border-b-2 border-gray-200 bg-white text-xs font-semibold text-purple uppercase tracking-wider">
@@ -32,10 +32,7 @@ const LatestHistory = () => {
           </td>
           <td className="px-10 py-3 border-b border-gray-200 bg-white text-sm">
             <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-              <span
-                aria-hidden
-                className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-              ></span>
+              <span className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
               <span className="relative">Activo</span>
             </span>
           </td>

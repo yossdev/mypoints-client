@@ -18,7 +18,7 @@ const EditProfile = () => {
       <form className="px-8 pt-6 pb-8 justify-center mb-4 bg-white rounded">
         <div className="mb-4">
           <label
-            className="block mb-2 text-sm font-bold text-purple font-roboto text-gray-700"
+            className="block mb-2 text-sm font-bold text-purple font-roboto"
             htmlFor="email"
           >
             Nama Agen
@@ -30,7 +30,7 @@ const EditProfile = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block mb-2 text-sm font-bold text-purple font-roboto text-gray-700">
+          <label className="block mb-2 text-sm font-bold text-purple font-roboto">
             Email
           </label>
           <input
@@ -40,7 +40,7 @@ const EditProfile = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block mb-2 text-sm font-bold text-purple font-roboto text-gray-700">
+          <label className="block mb-2 text-sm font-bold text-purple font-roboto">
             Password
           </label>
           <input

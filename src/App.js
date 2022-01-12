@@ -9,9 +9,9 @@ import Claims from './components/pages/Claims'
 
 import LayoutRedeems from './components/pages/Redeems/Layout'
 import Redeems from './components/pages/Redeems'
-import BankTransfer from './components/pages/BankTransfer'
-import DigitalProduct from './components/pages/DigitalProduct'
-import EWallet from './components/pages/EWallet'
+import BankTransfer from './components/pages/Redeems/BankTransfer'
+import DigitalProduct from './components/pages/Redeems/DigitalProduct'
+import EWallet from './components/pages/Redeems/EWallet'
 
 import History from './components/pages/History'
 import FAQ from './components/pages/FAQ'

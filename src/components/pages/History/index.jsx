@@ -1,5 +1,3 @@
-import UserMenu from '../../UI/organisms/UserMenu'
-import Sidebar from '../../UI/organisms/Sidebar'
 import Table from '../../UI/organisms/History/Table'
 
 import { HourglassIcon } from '@primer/octicons-react'
