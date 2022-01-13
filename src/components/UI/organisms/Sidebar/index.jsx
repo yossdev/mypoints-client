@@ -44,18 +44,18 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <NavLink to="/redeems">
-              <li
-                onClick={() => setRedeem(!redeem)}
-                className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2"
-              >
-                <div className="flex items-center">
-                  <GiftIcon size={20} />
-                  <span className="text-md ml-2 mr-14">Redeems</span>
-                  <ChevronDownIcon size={20} />
-                </div>
-              </li>
-            </NavLink>
+            {/* <NavLink to="/redeems"> */}
+            <li
+              onClick={() => setRedeem(!redeem)}
+              className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2"
+            >
+              <div className="flex items-center">
+                <GiftIcon size={20} />
+                <span className="text-md ml-2 mr-14">Redeems</span>
+                <ChevronDownIcon size={20} />
+              </div>
+            </li>
+            {/* </NavLink> */}
 
             {redeem ? (
               <div>

@@ -3,6 +3,10 @@ import flower from '../../../../assets/flower.svg'
 const Main = (props) => {
   return (
     <div className="mb-8 font-roboto">
+      <span className="block mb-2 text-xl text-darkgrey font-bold">
+        Agen Info
+      </span>
+
       <div
         style={{ width: '22%' }}
         className="inline-block mr-6 rounded-lg overflow-hidden shadow-lg bg-white pt-5 pb-24"

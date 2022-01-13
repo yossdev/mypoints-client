@@ -3,6 +3,20 @@ import { useState } from 'react'
 
 const Claim = (props) => {
   const [points, setPoints] = useState(0)
+  const [qty, setQty] = useState(0)
+
+  const handleID = (e) => {
+    const id = e.target.value
+    const point = props.data.find((product) => product.id === parseInt(id))
+
+    setPoints(point.points)
+  }
+
+  const handleQty = (e) => {
+    setQty(e.target.value)
+  }
+
+  const dapatPoints = points * qty
 
   const [image, setImage] = useState('')
   const [url, setUrl] = useState('')
@@ -33,7 +47,7 @@ const Claim = (props) => {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center font-roboto">
       <div className="flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto rounded-lg border border-gray-300 shadow-xl">
         <div className="flex flex-row justify-between p-6 bg-white border-b border-gray-200 rounded-tl-lg rounded-tr-lg">
           <p className="font-semibold text-gray-800">Claim Points</p>
@@ -51,15 +65,15 @@ const Claim = (props) => {
                 </label>
                 <div className="relative">
                   <select
+                    onChange={handleID}
                     name="produk"
                     className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
-                    {/* TODO */}
                     {props.data.map((product) => (
                       <option
-                        onSelect={() => setPoints(product.points)}
-                        key={product.id}
-                        value={product.title}
+                        // onSelect={() => setPoints(product.points)}
+                        // id={product.id}
+                        value={product.id}
                       >
                         {product.title}
                       </option>
@@ -85,6 +99,7 @@ const Claim = (props) => {
                   Quantity
                 </label>
                 <input
+                  onChange={handleQty}
                   name="qty"
                   className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   type="number"
@@ -102,19 +117,23 @@ const Claim = (props) => {
                 >
                   Faktur
                 </label>
-                <input className="inline" type="file" onChange={handleChange} />
+                <input
+                  className="inline font-light"
+                  type="file"
+                  onChange={handleChange}
+                />
               </div>
             </div>
 
             <p className="text-purple text-lg italic">
-              Anda akan mendapatkan {points}{' '}
+              Anda akan mendapatkan {dapatPoints}
               <img
                 alt="flower-icon"
                 src={flower}
                 className="inline w-6 ml-1 mb-1 rounded-full"
               />
             </p>
-            <div className="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
+            <div className="flex flex-row items-center justify-between p-5">
               <button
                 type="submit"
                 className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded"

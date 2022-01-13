@@ -7,11 +7,11 @@ const EditProfile = () => {
   return (
     <div
       style={{ width: '62%', margin: 'auto', marginTop: '20px' }}
-      className="rounded-lg overflow-hidden shadow-lg bg-white"
+      className="rounded-lg overflow-hidden shadow-lg bg-white font-roboto"
     >
       <div className="ml-6 pb-6 mt-6">
         <h3 className="text-2xl text-purple bold font-roboto">Edit Profile</h3>
-        <p className="mt-2 font-roboto font-light">
+        <p className="mt-2 font-light">
           Silahkan jika ingin melakukan perubahan data Anda
         </p>
       </div>

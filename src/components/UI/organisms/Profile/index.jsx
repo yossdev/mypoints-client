@@ -14,7 +14,7 @@ const Profile = (props) => {
     <>
       <div
         style={{ width: '35%', margin: 'auto' }}
-        className="rounded-lg overflow-hidden shadow-lg bg-white"
+        className="rounded-lg overflow-hidden shadow-lg bg-white font-roboto"
       >
         <div className="flex justify-center mt-8">
           {props.img !== '' ? (
@@ -42,14 +42,14 @@ const Profile = (props) => {
         <div className="border-t-2 py-3">
           <p
             onClick={() => setEditPhoto(!editPhoto)}
-            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-3 rounded-md cursor-pointer"
+            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto px-3 rounded-md cursor-pointer"
           >
             Upload Foto
           </p>
 
           <p
             onClick={() => setEditProfile(!editProfile)}
-            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-3 rounded-md cursor-pointer"
+            className="bg-white mx-auto w-1/2 text-center py-2 hover:bg-lightpurple text-purple text-sm font-roboto px-3 rounded-md cursor-pointer"
           >
             Edit Profile
           </p>
