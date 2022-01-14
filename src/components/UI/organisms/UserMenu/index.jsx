@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 import { useDispatch } from 'react-redux'
@@ -13,6 +13,25 @@ import {
 const UserMenu = (props) => {
   const [menu, setMenu] = useState(false)
 
+  const drop = useRef(null)
+
+  const handleClick = (e) => {
+    if (!e.target.closest(`.${drop.current?.className}`) && menu) {
+      setMenu(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick)
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
+  })
+
+  const handleDropdown = () => {
+    setMenu(!menu)
+  }
+
   const client = useApolloClient()
   const dispatch = useDispatch()
   let navigate = useNavigate()
@@ -25,23 +44,30 @@ const UserMenu = (props) => {
   }
 
   return (
-    <>
-      <div className="float-right mr-10 mt-4 font-roboto-300">
+    <div className="dropdown" ref={drop}>
+      <div className="float-right mr-7 mt-7 font-roboto-300">
         <div
-          onClick={() => setMenu(!menu)}
+          onClick={handleDropdown}
           className="flex ml-10 cursor-pointer items-center"
         >
           {props.img !== '' ? (
-            <img alt="avatar" className="mr-2" src={props.img} width={35} />
+            <div className="mr-3">
+              <img
+                alt="avatar"
+                className="rounded-full h-8 w-8"
+                src={props.img}
+              />
+            </div>
           ) : (
-            <img
-              alt="avatar"
-              className="mr-2"
-              src={
-                'https://kredithptangcity.com/wp-content/uploads/2020/11/user.png'
-              }
-              width={35}
-            />
+            <div className="mr-3">
+              <img
+                alt="avatar"
+                className="rounded-full h-8 w-8"
+                src={
+                  'https://kredithptangcity.com/wp-content/uploads/2020/11/user.png'
+                }
+              />
+            </div>
           )}
 
           <ChevronDownIcon size={20} fill="#5C5C5C" />
@@ -72,7 +98,7 @@ const UserMenu = (props) => {
           </div>
         ) : null}
       </div>
-    </>
+    </div>
   )
 }
 

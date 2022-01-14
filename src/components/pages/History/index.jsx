@@ -4,13 +4,14 @@ import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
 
 import { useQuery } from '@apollo/client'
-import { GET_100_TRANSACTIONS } from '../../../GraphQL/Query'
+import { GET_TRANSACTIONS } from '../../../GraphQL/Query'
 
 const History = () => {
   document.title = 'History'
   document.body.style = 'background: #EEEEEE;'
 
-  const { data, loading, error } = useQuery(GET_100_TRANSACTIONS, {
+  const { data, loading, error } = useQuery(GET_TRANSACTIONS, {
+    variables: { limit: 100 },
     notifyOnNetworkStatusChange: true,
   })
 
@@ -19,19 +20,18 @@ const History = () => {
 
   return (
     <>
-      <div className="ml-80 pt-3 font-roboto">
-        <HourglassIcon size={16} fill="darkgrey" />
-        <span className="text-sm ml-2 text-darkgrey">
-          / History Transaction
+      <div className="ml-80 pt-10 font-roboto">
+        <HourglassIcon size={20} fill="#5C5C5C" />
+        <span className="text-lg text-darkgrey font-bold">
+          History Transaction
         </span>
-        <br />
-        <span className="text-md text-darkgrey font-bold">History</span>
       </div>
 
       <div
         style={{
-          marginTop: '17px',
-          width: '80%',
+          marginTop: '20px',
+          marginRight: '15px',
+          width: '85%',
           float: 'right',
           padding: '20px',
         }}

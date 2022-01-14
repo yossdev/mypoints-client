@@ -16,12 +16,12 @@ const api = 'https://server.mypoints.site/api/v1/login'
 const Login = () => {
   document.title = 'Login'
 
-  const dataLogin = {
+  const payload = {
     email: '',
     password: '',
   }
 
-  const [reqBody, setReqBody] = useState(dataLogin)
+  const [reqBody, setReqBody] = useState(payload)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
@@ -40,13 +40,13 @@ const Login = () => {
     setLoading(true)
     axios
       .post(api, reqBody)
-      .then(function (response) {
+      .then((response) => {
         // dispatch redux untuk simpan jwt access token saat berhasil login
         const accessToken = response.data.data.access_token
         dispatch(storeJwt(accessToken))
         dispatch(isAuthenticated(true))
       })
-      .catch(function (err) {
+      .catch((err) => {
         setError(err)
       })
       .finally(() => {
@@ -137,7 +137,7 @@ const Login = () => {
 
       <div className="w-1/2 h-screen bg-purple items-center">
         <img
-          className="flex mx-auto mt-16"
+          className="flex mx-auto mt-40"
           alt="banner agent"
           src={agent}
           width={350}

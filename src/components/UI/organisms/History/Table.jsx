@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const Table = (props) => {
   return (
     <table className="w-full shadow-lg font-roboto">
@@ -34,29 +36,49 @@ const Table = (props) => {
             </td>
 
             <td className="py-3 border-b border-gray-200 bg-white text-sm">
-              <p className="text-gray-900 whitespace-no-wrap">
-                {transaction.type}
+              <p>{transaction.type}</p>
+            </td>
+
+            <td className="py-3 border-b border-gray-200 bg-white text-sm">
+              <p
+                className={
+                  transaction.type === 'Debit'
+                    ? 'text-green'
+                    : transaction.type === 'Credit'
+                    ? 'text-red'
+                    : ''
+                }
+              >
+                {transaction.type === 'Debit' ? (
+                  <span>+{transaction.points}</span>
+                ) : (
+                  <span>-{transaction.points}</span>
+                )}
               </p>
             </td>
 
             <td className="py-3 border-b border-gray-200 bg-white text-sm">
               <p className="text-gray-900 whitespace-no-wrap">
-                {transaction.points}
+                {moment(transaction.created_at).format('LL')}
               </p>
             </td>
 
             <td className="py-3 border-b border-gray-200 bg-white text-sm">
-              <p className="text-gray-900 whitespace-no-wrap">
-                {transaction.created_at}
-              </p>
-            </td>
-
-            <td className="py-3 border-b border-gray-200 bg-white text-sm">
-              <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+              <span className="relative inline-block px-3 py-1 text-gray-700 leading-tight">
                 <span
                   aria-hidden
-                  className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                ></span>
+                  className={
+                    transaction.status === 'Pending'
+                      ? 'absolute inset-0 opacity-50 bg-yellow rounded-full'
+                      : transaction.status === 'Settled' ||
+                        transaction.status === 'Approved'
+                      ? 'absolute inset-0 opacity-50 bg-green rounded-full'
+                      : transaction.status === 'Rejected' ||
+                        transaction.status === 'Expired'
+                      ? 'absolute inset-0 opacity-50 bg-red rounded-full'
+                      : ''
+                  }
+                />
                 <span className="relative">{transaction.status}</span>
               </span>
             </td>

@@ -10,7 +10,7 @@ const Profile = () => {
   document.title = 'Profile'
   document.body.style = 'background: #EEEEEE;'
 
-  const { data, loading, error } = useQuery(GET_AGENT, {
+  const { data, loading, error, refetch } = useQuery(GET_AGENT, {
     notifyOnNetworkStatusChange: true,
   })
 
@@ -21,25 +21,23 @@ const Profile = () => {
 
   return (
     <>
-      <div className="ml-80 pt-3 font-roboto">
-        <PersonIcon size={16} fill="darkgrey" />
-        <span className="text-sm ml-2 text-darkgrey">/ Agent Profile</span>
-        <br />
-        <span className="text-md text-darkgrey font-bold">Profile</span>
+      <div className="ml-80 pt-10 font-roboto">
+        <PersonIcon size={20} fill="#5C5C5C" />
+        <span className="text-lg text-darkgrey font-bold"> Profile</span>
       </div>
 
       <div
         className="mx-auto"
         style={{
-          marginTop: '17px',
-          width: '80%',
+          marginTop: '20px',
+          width: '85%',
           float: 'right',
           padding: '20px',
           display: 'inline',
         }}
       >
         <div className="mx-auto">
-          <Agent agent={agent} />
+          <Agent agent={agent} refetch={refetch} />
         </div>
       </div>
     </>

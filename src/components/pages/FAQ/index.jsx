@@ -18,18 +18,16 @@ const FAQ = () => {
 
   return (
     <>
-      <div className="ml-80 pt-3 font-roboto">
-        <UnverifiedIcon size={16} fill="darkgrey" />
-        <span className="text-sm ml-2 text-darkgrey">/ FAQ</span> <br />
-        <span className="text-md text-darkgrey font-bold">
-          Frequently Asked Question
-        </span>
+      <div className="ml-80 pt-10 font-roboto">
+        <UnverifiedIcon size={20} fill="#5C5C5C" />
+        <span className="text-lg text-darkgrey font-bold"> F A Q</span>
       </div>
 
       <div
         style={{
           marginTop: '17px',
-          width: '80%',
+          marginRight: '20px',
+          width: '85%',
           float: 'right',
           padding: '20px',
         }}
@@ -100,7 +98,7 @@ const FAQ = () => {
                   <div className="flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
                     <p className="font-roboto text-purple">
-                      Berapa rupiah konversi 1 MyPoints?
+                      Bagaimana caranya mendapatkan MyPoints?
                     </p>
                   </div>
                   <ChevronDownIcon
@@ -111,31 +109,7 @@ const FAQ = () => {
                 </div>
                 {faq.third ? (
                   <p className="ml-4 mt-4 font-roboto font-light text-sm">
-                    1 MyPoints senilai 100 Rupiah.
-                  </p>
-                ) : null}
-              </li>
-
-              <li className="py-3 sm:py-4">
-                <div
-                  onClick={() => setFaq({ ...faq, fourth: !faq.fourth })}
-                  className="flex items-center space-x-4 hover:underline cursor-pointer"
-                >
-                  <div className="flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-roboto text-purple">
-                      Bagaimana caranya mendapatkan MyPoints?
-                    </p>
-                  </div>
-                  <ChevronDownIcon
-                    size={20}
-                    className="inline-flex items-center"
-                    fill="#5F2788"
-                  />
-                </div>
-                {faq.fourth ? (
-                  <p className="ml-4 mt-4 font-roboto font-light text-sm">
-                    Jual salah satu produk yang ada, kemudian nantinya kamu akan
+                    Kirim bukti penjualanmu di halaman 'Claims' untuk
                     mendapatkan saldo MyPoints. Setelah itu, kamu bisa
                     menukarkan saldo MyPoints-mu dengan hadiah tertentu.
                   </p>
@@ -144,7 +118,7 @@ const FAQ = () => {
 
               <li className="py-3 sm:py-4">
                 <div
-                  onClick={() => setFaq({ ...faq, fifth: !faq.fifth })}
+                  onClick={() => setFaq({ ...faq, fourth: !faq.fourth })}
                   className="flex items-center space-x-4 hover:underline cursor-pointer"
                 >
                   <div className="flex-shrink-0"></div>
@@ -160,7 +134,7 @@ const FAQ = () => {
                     fill="#5F2788"
                   />
                 </div>
-                {faq.fifth ? (
+                {faq.fourth ? (
                   <p className="ml-4 mt-4 font-roboto font-light text-sm">
                     Jumlah MyPoints untuk setiap produk berbeda. Anda dapat
                     memeriksa jumlah Poin yang akan Anda peroleh dari setiap
@@ -171,7 +145,7 @@ const FAQ = () => {
 
               <li className="py-3 sm:py-4">
                 <div
-                  onClick={() => setFaq({ ...faq, sixth: !faq.sixth })}
+                  onClick={() => setFaq({ ...faq, fifth: !faq.fifth })}
                   className="flex items-center space-x-4 hover:underline cursor-pointer"
                 >
                   <div className="flex-shrink-0"></div>
@@ -186,10 +160,37 @@ const FAQ = () => {
                     fill="#5F2788"
                   />
                 </div>
-                {faq.sixth ? (
+                {faq.fifth ? (
                   <p className="ml-4 mt-4 font-roboto font-light text-sm">
                     Anda dapat menggunakan MyPoints untuk redeem / penukaran
                     dengan hadiah menarik tertentu sesuai keinginan.
+                  </p>
+                ) : null}
+              </li>
+
+              <li className="py-3 sm:py-4">
+                <div
+                  onClick={() => setFaq({ ...faq, sixth: !faq.sixth })}
+                  className="flex items-center space-x-4 hover:underline cursor-pointer"
+                >
+                  <div className="flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-roboto text-purple">
+                      Bagaimana cara menukarkan MyPoints dengan hadiah?
+                    </p>
+                  </div>
+                  <ChevronDownIcon
+                    size={20}
+                    className="inline-flex items-center"
+                    fill="#5F2788"
+                  />
+                </div>
+                {faq.sixth ? (
+                  <p className="ml-4 mt-4 font-roboto font-light text-sm">
+                    Pergi ke halamam Redeems &gt; Pilih hadiah yang kamu
+                    inginkan &gt; Pastikan saldo MyPoints mencukupi &gt; Isi
+                    deskripsi dengan No Rekening atau No Handphone untuk
+                    pengiriman hadiah &gt; Klik 'Dapatkan Hadiah'.
                   </p>
                 ) : null}
               </li>
