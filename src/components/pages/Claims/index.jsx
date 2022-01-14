@@ -19,16 +19,15 @@ const Claims = () => {
 
   return (
     <>
-      <div className="ml-80 pt-3 font-roboto">
-        <TagIcon size={16} fill="darkgrey" />
-        <span className="text-sm ml-2 text-darkgrey">/ Claims</span> <br />
-        <span className="text-md text-darkgrey font-bold">Claims</span>
+      <div className="ml-80 pt-10 font-roboto">
+        <TagIcon size={20} fill="#5C5C5C" />
+        <span className="text-lg text-darkgrey font-bold"> Claims</span>
       </div>
 
       <div
         style={{
-          marginTop: '17px',
-          width: '80%',
+          marginTop: '20px',
+          width: '85%',
           float: 'right',
           padding: '20px',
         }}
