@@ -4,7 +4,7 @@ Frontend (agent) application for MyPoints WebApp - Final Project Alterra Academy
 
 ## PPT Project
 
-[MyPointsPPT]()
+[MyPointsPPT](https://docs.google.com/presentation/d/1CknmZ4wCH17ST1ViROIu_vEyyxy4VZTl32VclzEOhjM/edit?usp=sharing)
 
 ## Features
 
