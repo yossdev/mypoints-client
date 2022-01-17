@@ -114,13 +114,21 @@ const Claim = (props) => {
         {/* for debugging */}
         {/* <div>{JSON.stringify(reqClaims, null, 2)}</div> */}
 
-        <div className="flex flex-row justify-between p-6 bg-white border-b border-gray-200 rounded-tl-lg rounded-tr-lg">
+        <div className="flex flex-row justify-between px-6 py-3 bg-white border-b border-gray-200 rounded-tl-lg rounded-tr-lg">
           <p className="font-semibold text-gray-800">Claim Points</p>
         </div>
 
-        {productImg !== '' ? <img src={productImg} alt="productImg" /> : null}
+        <div className="flex flex-col items-center px-6 pt-2 pb-5 bg-gray-50">
+          <div className="mx-auto">
+            {productImg !== '' ? (
+              <img
+                src={productImg}
+                className="w-16 h-16 mb-4"
+                alt="productImg"
+              />
+            ) : null}
+          </div>
 
-        <div className="flex flex-col items-center px-6 py-5 bg-gray-50">
           <form onSubmit={handleSubmit} className="w-full max-w-lg">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">

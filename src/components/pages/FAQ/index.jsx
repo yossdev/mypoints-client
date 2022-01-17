@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { UnverifiedIcon, ChevronDownIcon } from '@primer/octicons-react'
 
+import faqImage from '../../../assets/faq.svg'
+
 const Questions = {
   first: false,
   second: false,
@@ -196,6 +198,10 @@ const FAQ = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div style={{ position: 'sticky', float: 'right', width: '40%' }}>
+          <img src={faqImage} className="fixed right-4 w-2/5" alt="faq" />
         </div>
       </div>
     </>
