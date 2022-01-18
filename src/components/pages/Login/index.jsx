@@ -89,7 +89,7 @@ const Login = () => {
               htmlFor="email"
               className="text-sm font-medium text-purple block mb-2"
             >
-              e-mail
+              E-mail
             </label>
             <input
               onChange={handleChange}
@@ -106,7 +106,7 @@ const Login = () => {
               htmlFor="password"
               className="text-sm font-medium text-purple block mb-2"
             >
-              password
+              Password
             </label>
 
             <input

@@ -1,4 +1,7 @@
 import flower from '../../../../assets/flower.svg'
+import claim from '../../../../assets/claim.svg'
+import redeem from '../../../../assets/redeem.svg'
+import trans from '../../../../assets/trans.svg'
 
 const Main = (props) => {
   return (
@@ -39,7 +42,7 @@ const Main = (props) => {
                   props.data.redeems.aggregate.count}{' '}
                 x
               </h3>
-              <img alt="uang" src={flower} className="w-10 h-10" />
+              <img alt="uang" src={trans} className="w-10 h-10" />
             </div>
           </div>
         </div>
@@ -56,7 +59,7 @@ const Main = (props) => {
               <span className="text-4xl mr-5 text-purple font-bold font-poppins">
                 {props.data.claims.aggregate.count} x
               </span>
-              <img alt="uang" src={flower} className="w-10 h-10" />
+              <img alt="uang" src={claim} className="w-10 h-10" />
             </div>
           </div>
         </div>
@@ -73,7 +76,7 @@ const Main = (props) => {
               <span className="text-4xl mr-5 text-purple font-bold font-poppins">
                 {props.data.redeems.aggregate.count} x
               </span>
-              <img alt="uang" src={flower} className="w-10 h-10" />
+              <img alt="uang" src={redeem} className="w-10 h-10" />
             </div>
           </div>
         </div>

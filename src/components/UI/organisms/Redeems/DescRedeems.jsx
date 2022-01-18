@@ -1,6 +1,5 @@
 const DescRedeems = (props) => {
-  const { cancelRedeem, errorAxios, handleChange, setDesc, handleRedeem } =
-    props
+  const { cancelRedeem, errorAxios, handleChange, handleRedeem } = props
 
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-700 bg-opacity-50">

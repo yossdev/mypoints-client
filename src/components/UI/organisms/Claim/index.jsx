@@ -1,5 +1,8 @@
-import flower from '../../../../assets/flower.svg'
 import { useState } from 'react'
+
+import flower from '../../../../assets/flower.svg'
+import indomie from '../../../../assets/indomie.jpg'
+
 import axios from 'axios'
 import MainLoading from '../../atoms/Spinner/MainLoading'
 import useJwtDecode from '../../../../Hooks/useJwtDecode'
@@ -27,6 +30,7 @@ const Claim = (props) => {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
+  const [success, setSuccess] = useState()
 
   const [productImg, setProductImg] = useState(props.data[0].img)
 
@@ -81,6 +85,8 @@ const Claim = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setError()
+    setSuccess()
 
     let cld
     try {
@@ -98,7 +104,7 @@ const Claim = (props) => {
           headers: { Authorization: `Bearer ${JWT.token}` },
         }
       )
-      .then((response) => console.log(response))
+      .then((response) => setSuccess(response))
       .catch((err) => setError(err))
       .finally(() => {
         setLoading(false)
@@ -114,13 +120,23 @@ const Claim = (props) => {
         {/* for debugging */}
         {/* <div>{JSON.stringify(reqClaims, null, 2)}</div> */}
 
-        <div className="flex flex-row justify-between p-6 bg-white border-b border-gray-200 rounded-tl-lg rounded-tr-lg">
+        <div className="flex flex-row justify-between px-6 py-3 bg-white border-b border-gray-200 rounded-tl-lg rounded-tr-lg">
           <p className="font-semibold text-gray-800">Claim Points</p>
         </div>
 
-        {productImg !== '' ? <img src={productImg} alt="productImg" /> : null}
+        <div className="flex flex-col items-center px-6 pt-2 pb-5 bg-gray-50">
+          <div className="mx-auto">
+            {productImg !== '' ? (
+              <img
+                src={productImg}
+                className="max-w-64 mb-4"
+                alt="productImg"
+              />
+            ) : (
+              <img src={indomie} className="max-w-64 mb-4" alt="productImg" />
+            )}
+          </div>
 
-        <div className="flex flex-col items-center px-6 py-5 bg-gray-50">
           <form onSubmit={handleSubmit} className="w-full max-w-lg">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
@@ -202,6 +218,12 @@ const Claim = (props) => {
             {error ? (
               <div className="mt-6 text-sm text-center text-red italic">
                 Terjadi kesalahan, silahkan coba lagi!
+              </div>
+            ) : null}
+
+            {success ? (
+              <div className="mt-6 text-sm text-center text-purple italic">
+                Proses klaim berhasil, silahkan tunggu konfirmasi dari Admin.
               </div>
             ) : null}
 

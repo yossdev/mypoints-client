@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/client'
 import { GET_REWARD } from '../../../GraphQL/Query'
 
 import Desc from '../../../components/UI/organisms/Redeems/DescRedeems'
+import RespRedeems from '../../UI/organisms/Redeems/RespRedeems'
 
 import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
@@ -32,6 +33,7 @@ const Redeems = () => {
   const [loadingAxios, setLoadingAxios] = useState(false)
   const [errorAxios, setErrorAxios] = useState()
   const [desc, setDesc] = useState(false)
+  const [resp, setResp] = useState(false)
 
   const { data, loading, error } = useQuery(GET_REWARD, {
     notifyOnNetworkStatusChange: true,
@@ -52,7 +54,11 @@ const Redeems = () => {
       .post(api, reqRedeem, {
         headers: { Authorization: `Bearer ${JWT.token}` },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => {
+        setDesc(false)
+        setResp(true)
+        console.log(resp)
+      })
       .catch((err) => {
         setErrorAxios(err)
         console.log(errorAxios, 'error')
@@ -68,8 +74,7 @@ const Redeems = () => {
 
   const rewards = data.rewards
 
-  const handleClick = (e) => {
-    const rewardId = e.target.value
+  const handleClick = (rewardId) => {
     const reward = rewards.find((reward) => reward.id === parseInt(rewardId))
 
     setReqReedem({
@@ -113,13 +118,9 @@ const Redeems = () => {
               style={{ width: '31%' }}
               className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
             >
-              <div className="flex mx-auto w-16 justify-center mt-8">
+              <div className="flex mx-auto w-32 justify-center mt-8">
                 {reward.img !== '' ? (
-                  <img
-                    alt="reward icon"
-                    src={reward.img}
-                    className="border-solid border-white border-2 -mt-3"
-                  />
+                  <img alt="reward icon" src={reward.img} className="-mt-3" />
                 ) : (
                   <img alt="gift icon" src={gift} className="-mt-3" />
                 )}
@@ -137,8 +138,7 @@ const Redeems = () => {
               <div className="flex justify-center py-3 border-t">
                 <div className="text-center">
                   <button
-                    value={reward.id}
-                    onClick={handleClick}
+                    onClick={() => handleClick(reward.id)}
                     className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
                   >
                     Redeem Hadiah
@@ -157,6 +157,8 @@ const Redeems = () => {
             cancelRedeem={cancelRedeem}
           />
         )}
+
+        {resp && <RespRedeems setResp={setResp} />}
       </div>
     </>
   )
