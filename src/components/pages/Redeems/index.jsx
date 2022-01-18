@@ -74,8 +74,7 @@ const Redeems = () => {
 
   const rewards = data.rewards
 
-  const handleClick = (e) => {
-    const rewardId = e.target.value
+  const handleClick = (rewardId) => {
     const reward = rewards.find((reward) => reward.id === parseInt(rewardId))
 
     setReqReedem({
@@ -143,8 +142,7 @@ const Redeems = () => {
               <div className="flex justify-center py-3 border-t">
                 <div className="text-center">
                   <button
-                    value={reward.id}
-                    onClick={handleClick}
+                    onClick={() => handleClick(reward.id)}
                     className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
                   >
                     Redeem Hadiah
