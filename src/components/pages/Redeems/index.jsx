@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/client'
 import { GET_REWARD } from '../../../GraphQL/Query'
 
 import Desc from '../../../components/UI/organisms/Redeems/DescRedeems'
+import RespRedeems from '../../UI/organisms/Redeems/RespRedeems'
 
 import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
@@ -32,6 +33,7 @@ const Redeems = () => {
   const [loadingAxios, setLoadingAxios] = useState(false)
   const [errorAxios, setErrorAxios] = useState()
   const [desc, setDesc] = useState(false)
+  const [resp, setResp] = useState(false)
 
   const { data, loading, error } = useQuery(GET_REWARD, {
     notifyOnNetworkStatusChange: true,
@@ -52,7 +54,11 @@ const Redeems = () => {
       .post(api, reqRedeem, {
         headers: { Authorization: `Bearer ${JWT.token}` },
       })
-      .then((resp) => console.log(resp))
+      .then((resp) => {
+        setDesc(false)
+        setResp(true)
+        console.log(resp)
+      })
       .catch((err) => {
         setErrorAxios(err)
         console.log(errorAxios, 'error')
@@ -157,6 +163,8 @@ const Redeems = () => {
             cancelRedeem={cancelRedeem}
           />
         )}
+
+        {resp && <RespRedeems setResp={setResp} />}
       </div>
     </>
   )

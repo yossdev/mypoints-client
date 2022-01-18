@@ -27,6 +27,7 @@ const Claim = (props) => {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
+  const [success, setSuccess] = useState()
 
   const [productImg, setProductImg] = useState(props.data[0].img)
 
@@ -98,7 +99,7 @@ const Claim = (props) => {
           headers: { Authorization: `Bearer ${JWT.token}` },
         }
       )
-      .then((response) => console.log(response))
+      .then((response) => setSuccess(response))
       .catch((err) => setError(err))
       .finally(() => {
         setLoading(false)
@@ -210,6 +211,12 @@ const Claim = (props) => {
             {error ? (
               <div className="mt-6 text-sm text-center text-red italic">
                 Terjadi kesalahan, silahkan coba lagi!
+              </div>
+            ) : null}
+
+            {success ? (
+              <div className="mt-6 text-sm text-center text-purple italic">
+                Proses klaim berhasil, silahkan tunggu beberapa saat.
               </div>
             ) : null}
 
