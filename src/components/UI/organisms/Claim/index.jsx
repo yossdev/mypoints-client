@@ -82,6 +82,8 @@ const Claim = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setError()
+    setSuccess()
 
     let cld
     try {
@@ -124,7 +126,7 @@ const Claim = (props) => {
             {productImg !== '' ? (
               <img
                 src={productImg}
-                className="w-16 h-16 mb-4"
+                className="max-w-64 mb-4"
                 alt="productImg"
               />
             ) : null}
@@ -216,7 +218,7 @@ const Claim = (props) => {
 
             {success ? (
               <div className="mt-6 text-sm text-center text-purple italic">
-                Proses klaim berhasil, silahkan tunggu beberapa saat.
+                Proses klaim berhasil, silahkan tunggu konfirmasi dari Admin.
               </div>
             ) : null}
 

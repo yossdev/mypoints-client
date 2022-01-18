@@ -203,7 +203,7 @@ const FAQ = () => {
         <div style={{ position: 'sticky', float: 'right', width: '40%' }}>
           <img
             src={faqImage}
-            className="fixed bottom-15 right-10 w-1/3"
+            className="fixed bottom-15 right-24 w-1/3"
             alt="faq"
           />
         </div>
