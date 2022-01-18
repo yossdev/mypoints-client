@@ -118,13 +118,9 @@ const Redeems = () => {
               style={{ width: '31%' }}
               className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
             >
-              <div className="flex mx-auto w-16 justify-center mt-8">
+              <div className="flex mx-auto w-32 justify-center mt-8">
                 {reward.img !== '' ? (
-                  <img
-                    alt="reward icon"
-                    src={reward.img}
-                    className="border-solid border-white border-2 -mt-3"
-                  />
+                  <img alt="reward icon" src={reward.img} className="-mt-3" />
                 ) : (
                   <img alt="gift icon" src={gift} className="-mt-3" />
                 )}

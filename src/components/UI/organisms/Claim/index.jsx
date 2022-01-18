@@ -1,5 +1,8 @@
-import flower from '../../../../assets/flower.svg'
 import { useState } from 'react'
+
+import flower from '../../../../assets/flower.svg'
+import indomie from '../../../../assets/indomie.jpg'
+
 import axios from 'axios'
 import MainLoading from '../../atoms/Spinner/MainLoading'
 import useJwtDecode from '../../../../Hooks/useJwtDecode'
@@ -129,7 +132,9 @@ const Claim = (props) => {
                 className="max-w-64 mb-4"
                 alt="productImg"
               />
-            ) : null}
+            ) : (
+              <img src={indomie} className="max-w-64 mb-4" alt="productImg" />
+            )}
           </div>
 
           <form onSubmit={handleSubmit} className="w-full max-w-lg">
