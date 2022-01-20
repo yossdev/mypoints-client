@@ -23,6 +23,7 @@ Frontend (agent) application for MyPoints WebApp - Final Project Alterra Academy
 - React-redux, @reduxjs/toolkit, redux-persist
 - Apollo/GraphQL
 - REST APIs
+- Store images @ Cloudinary
 
 ## Architecture
 Atomic Design
