@@ -26,7 +26,7 @@ Frontend (agent) application for MyPoints WebApp - Final Project Alterra Academy
 - Cloudinary
 - Moment
 
-## Architecture
+## Project Structure
 Atomic Design
 ```
 |-- assets
