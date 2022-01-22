@@ -144,7 +144,7 @@ const Claim = (props) => {
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   htmlFor="grid-state"
                 >
-                  Product
+                  Product <span className="text-red">*</span>
                 </label>
                 <div className="relative">
                   <select
@@ -175,7 +175,7 @@ const Claim = (props) => {
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   htmlFor="grid-last-name"
                 >
-                  Quantity
+                  Quantity <span className="text-red">*</span>
                 </label>
                 <input
                   onChange={handleQty}
@@ -195,7 +195,7 @@ const Claim = (props) => {
                   className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
                   htmlFor="grid-password"
                 >
-                  Faktur
+                  Faktur <span className="text-red">*</span>
                 </label>
                 <input
                   className="inline font-light"
@@ -214,6 +214,8 @@ const Claim = (props) => {
                 className="inline w-6 ml-1 mb-1 rounded-full"
               />
             </p>
+
+            <div className="mt-8 text-sm text-red italic">* Wajib diisi</div>
 
             {error ? (
               <div className="mt-6 text-sm text-center text-red italic">
