@@ -89,7 +89,7 @@ const Login = () => {
               htmlFor="email"
               className="text-sm font-medium text-purple block mb-2"
             >
-              E-mail
+              E-mail <span className="text-red">*</span>
             </label>
             <input
               onChange={handleChange}
@@ -101,14 +101,14 @@ const Login = () => {
               required
             />
           </div>
+
           <div>
             <label
               htmlFor="password"
               className="text-sm font-medium text-purple block mb-2"
             >
-              Password
+              Password <span className="text-red">*</span>
             </label>
-
             <input
               onChange={handleChange}
               type="password"
@@ -120,8 +120,10 @@ const Login = () => {
             />
           </div>
 
+          <div className="my-2 text-sm text-red italic">* Wajib diisi</div>
+
           {error && (
-            <div className="text-sm text-center text-red italic">
+            <div className="my-4 text-sm text-center text-red italic">
               Email atau Password salah, silahkan coba lagi!
             </div>
           )}
