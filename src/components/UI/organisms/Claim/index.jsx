@@ -129,7 +129,7 @@ const Claim = (props) => {
             {productImg !== '' ? (
               <img
                 src={productImg}
-                className="max-w-64 mb-4"
+                className="max-w-xs mb-4"
                 alt="productImg"
               />
             ) : (
