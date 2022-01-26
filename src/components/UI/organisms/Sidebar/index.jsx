@@ -6,6 +6,7 @@ import {
   TagIcon,
   GiftIcon,
   HomeIcon,
+  ChevronDownIcon,
 } from '@primer/octicons-react'
 
 import logoWhite from '../../../../assets/logo-white.svg'
@@ -13,22 +14,53 @@ import { useEffect, useState } from 'react'
 
 const nav = {
   dashboard: false,
-  claim: false,
-  redeem: false,
+  claims: false,
+  redeems: false,
+  redeemsDrop: {
+    cashOut: false,
+    eMoney: false,
+    digitalProduct: false,
+  },
   history: false,
   faq: false,
 }
 
 const Sidebar = () => {
   const [activeNav, setActiveNav] = useState(nav)
+  const [redeem, setRedeem] = useState(false)
 
   let location = useLocation()
+
+  const regex = /redeems/
+  let redeemPage = regex.test(location.pathname)
 
   useEffect(() => {
     const pathname = location.pathname
     const name = pathname.slice(1)
-    setActiveNav({ ...nav, [name]: true })
-  }, [location])
+
+    console.log(activeNav)
+
+    switch (location.hash) {
+      case '#cash-out':
+        setActiveNav({ ...nav, redeemsDrop: { cashOut: true } })
+        break
+      case '#digital-product':
+        setActiveNav({ ...nav, redeemsDrop: { digitalProduct: true } })
+        break
+      case '#e-money':
+        setActiveNav({ ...nav, redeemsDrop: { eMoney: true } })
+        break
+      default:
+        setActiveNav({ ...nav, [name]: true })
+        break
+    }
+
+    if (redeemPage) {
+      setRedeem(true)
+    } else {
+      setRedeem(false)
+    }
+  }, [location, redeemPage])
 
   return (
     <>
@@ -75,15 +107,73 @@ const Sidebar = () => {
                   activeNav.redeems ? 'rounded-md bg-darkpurple' : null
                 }
               >
-                <NavLink to="/redeems">
+                <a href="/redeems#">
                   <div className="flex w-full justify-between text-white hover:bg-darkpurple rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
                     <div className="flex items-center">
                       <GiftIcon size={20} />
                       <span className="text-md ml-2 mr-14">Redeems</span>
+                      <ChevronDownIcon size={20} />
                     </div>
                   </div>
-                </NavLink>
+                </a>
               </li>
+
+              {/* Dropdown Rewards Menu */}
+              {redeem && (
+                <div>
+                  <ul>
+                    <li
+                      className={
+                        activeNav.redeemsDrop.cashOut
+                          ? 'rounded-md bg-darkpurple'
+                          : null
+                      }
+                    >
+                      <a href="#cash-out">
+                        <div className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                          <div className="flex items-center">
+                            <span className="text-md  ml-7">Cash Out</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li
+                      className={
+                        activeNav.redeemsDrop.eMoney
+                          ? 'rounded-md bg-darkpurple'
+                          : null
+                      }
+                    >
+                      <a href="#e-money">
+                        <div className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                          <div className="flex items-center">
+                            <span className="text-md  ml-7">E-Money</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li
+                      className={
+                        activeNav.redeemsDrop.digitalProduct
+                          ? 'rounded-md bg-darkpurple'
+                          : null
+                      }
+                    >
+                      <a href="#digital-product">
+                        <div className="flex w-full justify-between text-white hover:bg-[#391553] rounded-md cursor-pointer pl-4 pr-10 pt-2 pb-2 mb-2">
+                          <div className="flex items-center">
+                            <span className="text-md ml-7">
+                              Pulsa / Paket Data
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
 
               <li
                 className={

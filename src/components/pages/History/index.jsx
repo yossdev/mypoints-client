@@ -23,6 +23,7 @@ const History = () => {
       <div className="ml-80 pt-10 font-roboto">
         <HourglassIcon size={20} fill="#5C5C5C" />
         <span className="text-lg text-darkgrey font-bold">
+          {' '}
           History Transaction
         </span>
       </div>

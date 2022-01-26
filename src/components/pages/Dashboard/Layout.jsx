@@ -16,12 +16,12 @@ const Layout = () => {
   if (loading) return <MainLoading />
   if (error) return <Error />
 
-  const agent = data.agents[0]
+  const agent = data.admins[0].agents[0]
 
   return (
     <>
       <Sidebar />
-      <UserMenu img={agent.img} />
+      <UserMenu img={agent.img} points={agent.points} />
 
       <main>
         <Outlet />
