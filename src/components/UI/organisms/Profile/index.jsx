@@ -6,6 +6,8 @@ import MainLoading from '../../atoms/Spinner/MainLoading'
 
 import moment from 'moment'
 
+import user from '../../../../assets/user.png'
+
 const Profile = (props) => {
   const name =
     props.agent.name.charAt(0).toUpperCase() + props.agent.name.slice(1)
@@ -135,7 +137,7 @@ const Profile = (props) => {
         className="rounded-lg overflow-hidden shadow-lg bg-white font-roboto"
       >
         <div className="flex justify-center mt-10">
-          {props.img !== '' ? (
+          {props.agent.img !== '' ? (
             <img
               alt="avatar"
               src={props.agent.img}
@@ -144,24 +146,35 @@ const Profile = (props) => {
           ) : (
             <img
               alt="avatar"
-              src="https://kredithptangcity.com/wp-content/uploads/2020/11/user.png"
+              src={user}
               className="rounded-full w-28 h-28 -mt-3"
             />
           )}
         </div>
 
-        <div className="text-center px-3 pb-6 pt-2 mt-3">
-          <h3 className="text-2xl text-purple bold font-roboto">{name}</h3>
-          <h3 className="text-2xl text-purple bold font-roboto">
-            Email: {props.agent.email}
+        <div className="px-3 pb-6 pt-2 mt-3 border-2">
+          <h3 className="text-center text-2xl text-purple bold font-roboto">
+            {name}
           </h3>
-          <h3 className="text-2xl text-purple bold font-roboto">
-            Admin: {props.admin.name}
-          </h3>
-          <h3 className="text-2xl text-purple bold font-roboto">
-            {props.admin.created_at}
-            Tanggal Join: {moment(props.agent.created_at).format('LL')}
-          </h3>
+          <div className="mt-6 ml-28">
+            <span className="text-md text-gray-400">EMAIL:</span>
+            <p className=" text-2xl text-purple bold font-roboto mb-2">
+              {' '}
+              {props.agent.email}
+            </p>
+
+            <span className="text-md text-gray-400">ADMIN:</span>
+            <p className="text-2xl text-purple bold font-roboto mb-2">
+              {' '}
+              {props.admin.name}
+            </p>
+
+            <span className="text-md text-gray-400">TANGGAL JOIN:</span>
+            <p className="text-2xl text-purple bold font-roboto mb-2">
+              {' '}
+              {moment(props.agent.created_at).format('LL')}
+            </p>
+          </div>
         </div>
 
         <div className="py-3">
