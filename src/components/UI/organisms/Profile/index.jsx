@@ -152,7 +152,7 @@ const Profile = (props) => {
           )}
         </div>
 
-        <div className="px-3 pb-6 pt-2 mt-3 border-2">
+        <div className="px-3 pb-6 pt-2 mt-3">
           <h3 className="text-center text-2xl text-purple bold font-roboto">
             {name}
           </h3>
