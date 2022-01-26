@@ -57,11 +57,11 @@ const Redeems = () => {
       .then((resp) => {
         setDesc(false)
         setResp(true)
-        console.log(resp)
+        // console.log(resp)
       })
       .catch((err) => {
         setErrorAxios(err)
-        console.log(errorAxios, 'error')
+        // console.log(errorAxios, 'error')
       })
       .finally(() => {
         setLoadingAxios(false)
@@ -72,10 +72,25 @@ const Redeems = () => {
   if (loading || loadingAxios) return <MainLoading />
   if (error) return <Error />
 
-  const rewards = data.rewards
+  const e_money = data.e_money
+  const cash_out = data.cash_out
+  const digital_product = data.digital_product
 
-  const handleClick = (rewardId) => {
-    const reward = rewards.find((reward) => reward.id === parseInt(rewardId))
+  const findReward = (id, args) => {
+    switch (args) {
+      case 'E_MONEY':
+        return e_money.find((reward) => reward.id === parseInt(id))
+      case 'CASH_OUT':
+        return cash_out.find((reward) => reward.id === parseInt(id))
+      case 'DIGITAL_PRODUCT':
+        return digital_product.find((reward) => reward.id === parseInt(id))
+      default:
+        break
+    }
+  }
+
+  const handleClick = (rewardId, category) => {
+    const reward = findReward(rewardId, category)
 
     setReqReedem({
       ...reqRedeem,
@@ -111,14 +126,19 @@ const Redeems = () => {
         {/* Debug payload */}
         {/* <div>{JSON.stringify(reqRedeem, null, 2)}</div> */}
 
+        {/* cash out */}
+        <div id="cash-out" className="p-2">
+          <h1 className="text-2xl font-semibold font-poppins pb-1">Cash Out</h1>
+          <hr />
+        </div>
         <div className="mb-8 font-roboto">
-          {rewards.map((reward) => (
+          {cash_out.map((reward) => (
             <div
               key={reward.id}
-              style={{ width: '31%' }}
+              style={{ width: '23%' }}
               className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
             >
-              <div className="flex mx-auto w-32 justify-center mt-8">
+              <div className="flex mx-auto w-24 justify-center mt-8">
                 {reward.img !== '' ? (
                   <img alt="reward icon" src={reward.img} className="-mt-3" />
                 ) : (
@@ -138,7 +158,7 @@ const Redeems = () => {
               <div className="flex justify-center py-3 border-t">
                 <div className="text-center">
                   <button
-                    onClick={() => handleClick(reward.id)}
+                    onClick={() => handleClick(reward.id, reward.category)}
                     className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
                   >
                     Redeem Hadiah
@@ -148,6 +168,95 @@ const Redeems = () => {
             </div>
           ))}
         </div>
+
+        {/* e-money */}
+        <div id="e-money" className="p-2">
+          <h1 className="text-2xl font-semibold font-poppins pb-1">E-Money</h1>
+          <hr />
+        </div>
+        <div className="mb-8 font-roboto">
+          {e_money.map((reward) => (
+            <div
+              key={reward.id}
+              style={{ width: '23%' }}
+              className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
+            >
+              <div className="flex mx-auto w-24 justify-center mt-8">
+                {reward.img !== '' ? (
+                  <img alt="reward icon" src={reward.img} className="-mt-3" />
+                ) : (
+                  <img alt="gift icon" src={gift} className="-mt-3" />
+                )}
+              </div>
+
+              <div className="text-center px-3 pb-6 pt-2">
+                <h3 className="text-2xl text-purple bold font-roboto">
+                  {reward.title}
+                </h3>
+                <p className="mt-2 text-md font-roboto font-light">
+                  Tukarkan {reward.points} MyPoints.
+                </p>
+              </div>
+
+              <div className="flex justify-center py-3 border-t">
+                <div className="text-center">
+                  <button
+                    onClick={() => handleClick(reward.id, reward.category)}
+                    className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
+                  >
+                    Redeem Hadiah
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* digital product */}
+        <div id="digital-product" className="p-2">
+          <h1 className="text-2xl font-semibold font-poppins pb-1">
+            Pulsa / Paket Data
+          </h1>
+          <hr />
+        </div>
+        <div className="mb-8 font-roboto">
+          {digital_product.map((reward) => (
+            <div
+              key={reward.id}
+              style={{ width: '23%' }}
+              className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
+            >
+              <div className="flex mx-auto w-24 justify-center mt-8">
+                {reward.img !== '' ? (
+                  <img alt="reward icon" src={reward.img} className="-mt-3" />
+                ) : (
+                  <img alt="gift icon" src={gift} className="-mt-3" />
+                )}
+              </div>
+
+              <div className="text-center px-3 pb-6 pt-2">
+                <h3 className="text-2xl text-purple bold font-roboto">
+                  {reward.title}
+                </h3>
+                <p className="mt-2 text-md font-roboto font-light">
+                  Tukarkan {reward.points} MyPoints.
+                </p>
+              </div>
+
+              <div className="flex justify-center py-3 border-t">
+                <div className="text-center">
+                  <button
+                    onClick={() => handleClick(reward.id, reward.category)}
+                    className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
+                  >
+                    Redeem Hadiah
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {desc && (
           <Desc
             errorAxios={errorAxios}

@@ -12,7 +12,7 @@ const Greeting = () => {
   if (loading) return <MainLoading />
   if (error) return <Error />
 
-  const agent = data.agents[0]
+  const agent = data.admins[0].agents[0]
   const name = agent.name.charAt(0).toUpperCase() + agent.name.slice(1)
 
   return (

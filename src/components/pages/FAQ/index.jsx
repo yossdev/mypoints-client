@@ -36,7 +36,7 @@ const FAQ = () => {
       >
         <div
           style={{ float: 'left', width: '50%' }}
-          className="bg-white rounded-lg shadow-lg mx-auto max-w-2xl p-4"
+          className="bg-white rounded-lg shadow-lg mx-auto ml-10 max-w-2xl p-4"
         >
           <div className="flow-root">
             <ul className="divide-y divide-gray-200">

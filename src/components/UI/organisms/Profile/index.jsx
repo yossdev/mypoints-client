@@ -4,6 +4,8 @@ import axios from 'axios'
 import useJwtDecode from '../../../../Hooks/useJwtDecode'
 import MainLoading from '../../atoms/Spinner/MainLoading'
 
+import moment from 'moment'
+
 const Profile = (props) => {
   const name =
     props.agent.name.charAt(0).toUpperCase() + props.agent.name.slice(1)
@@ -151,7 +153,14 @@ const Profile = (props) => {
         <div className="text-center px-3 pb-6 pt-2 mt-3">
           <h3 className="text-2xl text-purple bold font-roboto">{name}</h3>
           <h3 className="text-2xl text-purple bold font-roboto">
-            {props.agent.email}
+            Email: {props.agent.email}
+          </h3>
+          <h3 className="text-2xl text-purple bold font-roboto">
+            Admin: {props.admin.name}
+          </h3>
+          <h3 className="text-2xl text-purple bold font-roboto">
+            {props.admin.created_at}
+            Tanggal Join: {moment(props.agent.created_at).format('LL')}
           </h3>
         </div>
 

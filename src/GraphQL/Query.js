@@ -2,12 +2,16 @@ import { gql } from '@apollo/client'
 
 const GET_AGENT = gql`
   query Agent {
-    agents {
-      id
+    admins {
       name
-      email
-      img
-      points
+      agents {
+        id
+        name
+        email
+        img
+        points
+        created_at
+      }
     }
   }
 `
@@ -56,11 +60,26 @@ const GET_PRODUCT = gql`
 `
 const GET_REWARD = gql`
   query Rewards {
-    rewards {
+    e_money: rewards(where: { category: { _eq: E_MONEY } }) {
       id
       img
       title
       points
+      category
+    }
+    cash_out: rewards(where: { category: { _eq: CASH_OUT } }) {
+      id
+      img
+      title
+      points
+      category
+    }
+    digital_product: rewards(where: { category: { _eq: DIGITAL_PRODUCT } }) {
+      id
+      img
+      title
+      points
+      category
     }
   }
 `

@@ -17,7 +17,8 @@ const Profile = () => {
   if (loading) return <MainLoading />
   if (error) return <Error />
 
-  const agent = data.agents[0]
+  const agent = data.admins[0].agents[0]
+  const admin = data.admins[0]
 
   return (
     <>
@@ -37,7 +38,7 @@ const Profile = () => {
         }}
       >
         <div className="mx-auto">
-          <Agent agent={agent} refetch={refetch} />
+          <Agent agent={agent} admin={admin} refetch={refetch} />
         </div>
       </div>
     </>

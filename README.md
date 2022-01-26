@@ -11,8 +11,11 @@ Frontend (agent) application for MyPoints WebApp - Final Project Alterra Academy
 - [x] Login agent
 - [x] Update Profile & Avatar for agent
 - [x] Claim points for product sold
-- [x] Redeem points for a reward
+- [x] Redeem for Benefit (Cash Out)
+- [x] Redeem for Benefit (E-Money)
+- [x] Redeem for Benefit (Pulsa / Paket Data)
 - [x] History Transactions
+- [x] Filter & Pagination
 - [x] Frequently Asked Questions
 
 ## MyPoints Agent tech-stack:
@@ -23,11 +26,13 @@ Frontend (agent) application for MyPoints WebApp - Final Project Alterra Academy
 - React-redux, @reduxjs/toolkit, redux-persist
 - Apollo/GraphQL
 - REST APIs
-- Cloudinary
-- Moment
+- Storing Image @ Cloudinary
+- Date Format with Moment
 
 ## Project Structure
+
 Atomic Design
+
 ```
 |-- assets
 |-- components

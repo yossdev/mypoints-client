@@ -4,6 +4,8 @@ import { useApolloClient } from '@apollo/client'
 import { useDispatch } from 'react-redux'
 import { signOut } from '../../../../store/slice'
 
+import flower from '../../../../assets/flower.svg'
+
 import {
   ChevronDownIcon,
   PersonIcon,
@@ -44,14 +46,21 @@ const UserMenu = (props) => {
   }
 
   return (
-    <div className="dropdown" ref={drop}>
-      <div className="float-right mr-7 mt-7 font-roboto-300">
+    <div className="flex float-right mr-7 mt-7 font-roboto-300">
+      <div className="flex items-center bg-white rounded-md px-2 py-1">
+        <h3 className="text-2xl mr-2 text-purple font-bold font-poppins">
+          {props.points}
+        </h3>
+        <img alt="uang" src={flower} className=" w-6 h-6" />
+      </div>
+
+      <div>
         <div
           onClick={handleDropdown}
-          className="flex ml-10 cursor-pointer items-center"
+          className="flex ml-6 cursor-pointer items-center"
         >
           {props.img !== '' ? (
-            <div className="mr-3">
+            <div className="mr-1">
               <img
                 alt="avatar"
                 className="rounded-full h-10 w-10"
@@ -73,7 +82,7 @@ const UserMenu = (props) => {
           <ChevronDownIcon size={20} fill="#5C5C5C" />
         </div>
 
-        {menu ? (
+        {menu && (
           <div className="w-100 absolute bg-white p-2 border border-purple rounded-md mt-2 drop-shadow-lg">
             <ul>
               <li>
@@ -101,7 +110,7 @@ const UserMenu = (props) => {
               </li>
             </ul>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   )

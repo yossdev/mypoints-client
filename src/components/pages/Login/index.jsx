@@ -9,7 +9,7 @@ import { isAuthenticated, storeJwt } from '../../../store/slice'
 import { useDispatch } from 'react-redux'
 import { store } from '../../../store/store'
 
-import MainLoading from '../../UI/atoms/Spinner/MainLoading'
+import MoonLoader from 'react-spinners/MoonLoader'
 
 const api = 'https://server.mypoints.site/api/v1/login'
 
@@ -73,8 +73,6 @@ const Login = () => {
     }
   })
 
-  if (loading) return <MainLoading />
-
   return (
     <div className="flex items-center">
       <div className="mx-auto w-1/4 font-roboto space-y-6 bg-white shadow-lg border border-purple rounded-lg px-5 pb-8">
@@ -128,12 +126,19 @@ const Login = () => {
             </div>
           )}
 
-          <button
-            type="submit"
-            className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >
-            Login
-          </button>
+          {loading ? (
+            <div className="flex justify-center">
+              <MoonLoader size={17} color={'#5F2788'} />
+              <span className="px-2">Logging in...</span>
+            </div>
+          ) : (
+            <button
+              type="submit"
+              className="w-full text-white bg-purple hover:bg-darkpurple focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Login
+            </button>
+          )}
         </form>
       </div>
 

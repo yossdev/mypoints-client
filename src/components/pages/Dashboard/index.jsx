@@ -21,7 +21,7 @@ const Dashboard = () => {
     loading: loadingTransaction,
     error: errorTransaction,
   } = useQuery(GET_TRANSACTIONS, {
-    variables: { limit: 10 },
+    variables: { limit: 5 },
     notifyOnNetworkStatusChange: true,
   })
 
