@@ -38,8 +38,6 @@ const Sidebar = () => {
     const pathname = location.pathname
     const name = pathname.slice(1)
 
-    console.log(activeNav)
-
     switch (location.hash) {
       case '#cash-out':
         setActiveNav({ ...nav, redeemsDrop: { cashOut: true } })

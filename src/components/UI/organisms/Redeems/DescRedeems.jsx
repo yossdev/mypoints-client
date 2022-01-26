@@ -1,5 +1,6 @@
 const DescRedeems = (props) => {
-  const { cancelRedeem, errorAxios, handleChange, handleRedeem } = props
+  const { reqRedeem, cancelRedeem, errorAxios, handleChange, handleRedeem } =
+    props
 
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-700 bg-opacity-50">
@@ -10,9 +11,14 @@ const DescRedeems = (props) => {
           className="mx-auto w-full text-center items-center justify-center mb-4 rounded"
         >
           <div>
-            <label className="text-sm font-roboto text-purple mb-4">
+            <span className="text-md font-roboto text-purple mb-4">
               Isi deskripsi untuk pengiriman hadiah.
-            </label>
+            </span>
+
+            <p className="text-md font-roboto text-purple mb-4">
+              Redeem {reqRedeem.title}, points yang dibutuhkan{' '}
+              {reqRedeem.points}.
+            </p>
 
             <div className="text-sm font-roboto text-red">
               {errorAxios && <span>Points tidak cukup</span>}
@@ -22,7 +28,7 @@ const DescRedeems = (props) => {
               onChange={handleChange}
               rows="10"
               cols="100"
-              style={{ minHeight: '150px' }}
+              style={{ minHeight: '150px', resize: 'none' }}
               className="px-3 py-2 my-3 text-sm leading-tight text-gray-700 border rounded"
               required
             />

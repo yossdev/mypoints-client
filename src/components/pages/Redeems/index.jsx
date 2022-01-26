@@ -10,6 +10,10 @@ import { GET_REWARD } from '../../../GraphQL/Query'
 import Desc from '../../../components/UI/organisms/Redeems/DescRedeems'
 import RespRedeems from '../../UI/organisms/Redeems/RespRedeems'
 
+import PageCashOut from '../../UI/organisms/Redeems/PageCashOut'
+import PageEMoney from '../../UI/organisms/Redeems/PageEMoney'
+import PageDigitalProduct from '../../UI/organisms/Redeems/PageDigitalProduct'
+
 import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
 
@@ -38,6 +42,41 @@ const Redeems = () => {
   const { data, loading, error } = useQuery(GET_REWARD, {
     notifyOnNetworkStatusChange: true,
   })
+
+  //Pagination CashOut
+  const [startCash, setStartCash] = useState(0)
+
+  const totalRender = 10
+
+  const handlePrevCash = () => {
+    setStartCash(startCash - totalRender)
+  }
+
+  const handleNextCash = () => {
+    setStartCash(startCash + totalRender)
+  }
+
+  //Pagination E-Money
+  const [startEmoney, setStartEmoney] = useState(0)
+
+  const handlePrevEmoney = () => {
+    setStartEmoney(startEmoney - totalRender)
+  }
+
+  const handleNextEmoney = () => {
+    setStartEmoney(startEmoney + totalRender)
+  }
+
+  //Pagination Digital Product
+  const [startDigital, setStartDigital] = useState(0)
+
+  const handlePrevDigital = () => {
+    setStartDigital(startDigital - totalRender)
+  }
+
+  const handleNextDigital = () => {
+    setStartDigital(startDigital + totalRender)
+  }
 
   // for redeem description
   const handleChange = (e) => {
@@ -132,41 +171,57 @@ const Redeems = () => {
           <hr />
         </div>
         <div className="mb-8 font-roboto">
-          {cash_out.map((reward) => (
-            <div
-              key={reward.id}
-              style={{ width: '23%' }}
-              className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
-            >
-              <div className="flex mx-auto w-24 justify-center mt-8">
-                {reward.img !== '' ? (
-                  <img alt="reward icon" src={reward.img} className="-mt-3" />
-                ) : (
-                  <img alt="gift icon" src={gift} className="-mt-3" />
-                )}
-              </div>
+          {cash_out.map((reward, idx) => {
+            if (idx >= startCash && idx <= startCash + totalRender) {
+              return (
+                <div
+                  key={reward.id}
+                  style={{ width: '23%' }}
+                  className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
+                >
+                  <div className="flex mx-auto w-24 justify-center mt-8">
+                    {reward.img !== '' ? (
+                      <img
+                        alt="reward icon"
+                        src={reward.img}
+                        className="-mt-3"
+                      />
+                    ) : (
+                      <img alt="gift icon" src={gift} className="-mt-3" />
+                    )}
+                  </div>
 
-              <div className="text-center px-3 pb-6 pt-2">
-                <h3 className="text-2xl text-purple bold font-roboto">
-                  {reward.title}
-                </h3>
-                <p className="mt-2 text-md font-roboto font-light">
-                  Tukarkan {reward.points} MyPoints.
-                </p>
-              </div>
+                  <div className="text-center px-3 pb-6 pt-2">
+                    <h3 className="text-2xl text-purple bold font-roboto">
+                      {reward.title}
+                    </h3>
+                    <p className="mt-2 text-md font-roboto font-light">
+                      Tukarkan {reward.points} MyPoints.
+                    </p>
+                  </div>
 
-              <div className="flex justify-center py-3 border-t">
-                <div className="text-center">
-                  <button
-                    onClick={() => handleClick(reward.id, reward.category)}
-                    className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
-                  >
-                    Redeem Hadiah
-                  </button>
+                  <div className="flex justify-center py-3 border-t">
+                    <div className="text-center">
+                      <button
+                        onClick={() => handleClick(reward.id, reward.category)}
+                        className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
+                      >
+                        Redeem Hadiah
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+            }
+          })}
+
+          <PageCashOut
+            prev={handlePrevCash}
+            next={handleNextCash}
+            start={startCash}
+            len={cash_out.length}
+            totalRender={totalRender}
+          />
         </div>
 
         {/* e-money */}
@@ -175,41 +230,57 @@ const Redeems = () => {
           <hr />
         </div>
         <div className="mb-8 font-roboto">
-          {e_money.map((reward) => (
-            <div
-              key={reward.id}
-              style={{ width: '23%' }}
-              className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
-            >
-              <div className="flex mx-auto w-24 justify-center mt-8">
-                {reward.img !== '' ? (
-                  <img alt="reward icon" src={reward.img} className="-mt-3" />
-                ) : (
-                  <img alt="gift icon" src={gift} className="-mt-3" />
-                )}
-              </div>
+          {e_money.map((reward, idx) => {
+            if (idx >= startEmoney && idx <= startEmoney + totalRender) {
+              return (
+                <div
+                  key={reward.id}
+                  style={{ width: '23%' }}
+                  className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
+                >
+                  <div className="flex mx-auto w-24 justify-center mt-8">
+                    {reward.img !== '' ? (
+                      <img
+                        alt="reward icon"
+                        src={reward.img}
+                        className="-mt-3"
+                      />
+                    ) : (
+                      <img alt="gift icon" src={gift} className="-mt-3" />
+                    )}
+                  </div>
 
-              <div className="text-center px-3 pb-6 pt-2">
-                <h3 className="text-2xl text-purple bold font-roboto">
-                  {reward.title}
-                </h3>
-                <p className="mt-2 text-md font-roboto font-light">
-                  Tukarkan {reward.points} MyPoints.
-                </p>
-              </div>
+                  <div className="text-center px-3 pb-6 pt-2">
+                    <h3 className="text-2xl text-purple bold font-roboto">
+                      {reward.title}
+                    </h3>
+                    <p className="mt-2 text-md font-roboto font-light">
+                      Tukarkan {reward.points} MyPoints.
+                    </p>
+                  </div>
 
-              <div className="flex justify-center py-3 border-t">
-                <div className="text-center">
-                  <button
-                    onClick={() => handleClick(reward.id, reward.category)}
-                    className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
-                  >
-                    Redeem Hadiah
-                  </button>
+                  <div className="flex justify-center py-3 border-t">
+                    <div className="text-center">
+                      <button
+                        onClick={() => handleClick(reward.id, reward.category)}
+                        className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
+                      >
+                        Redeem Hadiah
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+            }
+          })}
+
+          <PageEMoney
+            prev={handlePrevEmoney}
+            next={handleNextEmoney}
+            start={startEmoney}
+            len={e_money.length}
+            totalRender={totalRender}
+          />
         </div>
 
         {/* digital product */}
@@ -220,45 +291,62 @@ const Redeems = () => {
           <hr />
         </div>
         <div className="mb-8 font-roboto">
-          {digital_product.map((reward) => (
-            <div
-              key={reward.id}
-              style={{ width: '23%' }}
-              className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
-            >
-              <div className="flex mx-auto w-24 justify-center mt-8">
-                {reward.img !== '' ? (
-                  <img alt="reward icon" src={reward.img} className="-mt-3" />
-                ) : (
-                  <img alt="gift icon" src={gift} className="-mt-3" />
-                )}
-              </div>
+          {digital_product.map((reward, idx) => {
+            if (idx >= startDigital && idx <= startDigital + totalRender) {
+              return (
+                <div
+                  key={reward.id}
+                  style={{ width: '23%' }}
+                  className="inline-block mr-6 mb-4 rounded-lg overflow-hidden shadow-lg bg-white"
+                >
+                  <div className="flex mx-auto w-24 justify-center mt-8">
+                    {reward.img !== '' ? (
+                      <img
+                        alt="reward icon"
+                        src={reward.img}
+                        className="-mt-3"
+                      />
+                    ) : (
+                      <img alt="gift icon" src={gift} className="-mt-3" />
+                    )}
+                  </div>
 
-              <div className="text-center px-3 pb-6 pt-2">
-                <h3 className="text-2xl text-purple bold font-roboto">
-                  {reward.title}
-                </h3>
-                <p className="mt-2 text-md font-roboto font-light">
-                  Tukarkan {reward.points} MyPoints.
-                </p>
-              </div>
+                  <div className="text-center px-3 pb-6 pt-2">
+                    <h3 className="text-2xl text-purple bold font-roboto">
+                      {reward.title}
+                    </h3>
+                    <p className="mt-2 text-md font-roboto font-light">
+                      Tukarkan {reward.points} MyPoints.
+                    </p>
+                  </div>
 
-              <div className="flex justify-center py-3 border-t">
-                <div className="text-center">
-                  <button
-                    onClick={() => handleClick(reward.id, reward.category)}
-                    className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
-                  >
-                    Redeem Hadiah
-                  </button>
+                  <div className="flex justify-center py-3 border-t">
+                    <div className="text-center">
+                      <button
+                        onClick={() => handleClick(reward.id, reward.category)}
+                        className="bg-white hover:bg-lightpurple text-purple text-sm font-roboto py-3 px-24 rounded-md"
+                      >
+                        Redeem Hadiah
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+            }
+          })}
+
+          <PageDigitalProduct
+            prev={handlePrevDigital}
+            next={handleNextDigital}
+            start={startDigital}
+            len={digital_product.length}
+            totalRender={totalRender}
+          />
         </div>
 
         {desc && (
           <Desc
+            reqRedeem={reqRedeem}
             errorAxios={errorAxios}
             handleRedeem={handleRedeem}
             handleChange={handleChange}

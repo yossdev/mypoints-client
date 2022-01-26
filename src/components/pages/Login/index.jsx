@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, NavLink } from 'react-router-dom'
 
 import logo from '../../../assets/logo.svg'
 import agent from '../../../assets/agent.svg'
@@ -140,6 +140,15 @@ const Login = () => {
             </button>
           )}
         </form>
+
+        <hr />
+        <div className="flex justify-between my-10">
+          <NavLink to="/">
+            <span className="text-purple hover:underline hover:text-darkpurple">
+              Kembali
+            </span>
+          </NavLink>
+        </div>
       </div>
 
       <div className="w-1/2 h-screen bg-purple items-center">
