@@ -18,7 +18,7 @@ import MainLoading from '../../UI/atoms/Spinner/MainLoading'
 import Error from '../../UI/organisms/Error'
 
 const Redeems = () => {
-  document.title = 'Profile'
+  document.title = 'Redeems'
   document.body.style = 'background: #EEEEEE;'
 
   const JWT = useJwtDecode()
