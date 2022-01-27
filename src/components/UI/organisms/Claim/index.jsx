@@ -15,14 +15,14 @@ const Claim = (props) => {
   const claimsBody = {
     agent_id: agentId,
     nota_img: '',
-    points: props.data[0].points,
-    product_id: parseInt(props.data[0].id),
-    title: props.data[0].title,
+    points: props.data[0]?.points,
+    product_id: parseInt(props.data[0]?.id),
+    title: props.data[0]?.title,
   }
 
   const [qty, setQty] = useState(1)
-  const [points, setPoints] = useState(props.data[0].points)
-  const [totalPoints, setTotalPoints] = useState(props.data[0].points)
+  const [points, setPoints] = useState(props.data[0]?.points)
+  const [totalPoints, setTotalPoints] = useState(props.data[0]?.points)
 
   const [image, setImage] = useState('')
 
@@ -32,7 +32,7 @@ const Claim = (props) => {
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
 
-  const [productImg, setProductImg] = useState(props.data[0].img)
+  const [productImg, setProductImg] = useState(props.data[0]?.img)
 
   const handleProduct = (e) => {
     const productId = e.target.value
@@ -124,121 +124,129 @@ const Claim = (props) => {
           <p className="font-semibold text-gray-800">Claim Points</p>
         </div>
 
-        <div className="flex flex-col items-center px-6 pt-2 pb-5 bg-gray-50">
-          <div className="mx-auto">
-            {productImg !== '' ? (
-              <img
-                src={productImg}
-                className="max-w-xs mb-4"
-                alt="productImg"
-              />
-            ) : (
-              <img src={indomie} className="max-w-64 mb-4" alt="productImg" />
-            )}
+        {!props.data.length ? (
+          <div className="flex flex-col items-center px-6 pt-2 pb-5 bg-gray-50">
+            <h1 className="text-xl py-5 font-poppins">
+              Tidak ada product yang dapat di Claim, hubungi admin
+            </h1>
           </div>
+        ) : (
+          <div className="flex flex-col items-center px-6 pt-2 pb-5 bg-gray-50">
+            <div className="mx-auto">
+              {productImg !== '' ? (
+                <img
+                  src={productImg}
+                  className="max-w-xs mb-4"
+                  alt="productImg"
+                />
+              ) : (
+                <img src={indomie} className="max-w-64 mb-4" alt="productImg" />
+              )}
+            </div>
 
-          <form onSubmit={handleSubmit} className="w-full max-w-lg">
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
-                <label
-                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-state"
-                >
-                  Product <span className="text-red">*</span>
-                </label>
-                <div className="relative">
-                  <select
-                    onChange={handleProduct}
-                    name="produk"
-                    className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            <form onSubmit={handleSubmit} className="w-full max-w-lg">
+              <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+                  <label
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    htmlFor="grid-state"
                   >
-                    {props.data.map((product) => (
-                      <option key={product.id} value={product.id}>
-                        {product.title}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
+                    Product <span className="text-red">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      onChange={handleProduct}
+                      name="produk"
+                      className="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     >
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
+                      {props.data.map((product) => (
+                        <option key={product.id} value={product.id}>
+                          {product.title}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg
+                        className="fill-current h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </div>
                   </div>
+                </div>
+
+                <div className="w-full md:w-1/3 px-3">
+                  <label
+                    className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    htmlFor="grid-last-name"
+                  >
+                    Quantity <span className="text-red">*</span>
+                  </label>
+                  <input
+                    onChange={handleQty}
+                    name="qty"
+                    className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    type="number"
+                    defaultValue={1}
+                    placeholder="Qty"
+                    min="1"
+                  />
                 </div>
               </div>
 
-              <div className="w-full md:w-1/3 px-3">
-                <label
-                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-last-name"
-                >
-                  Quantity <span className="text-red">*</span>
-                </label>
-                <input
-                  onChange={handleQty}
-                  name="qty"
-                  className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  type="number"
-                  defaultValue={1}
-                  placeholder="Qty"
-                  min="1"
+              <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                  <label
+                    className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Faktur <span className="text-red">*</span>
+                  </label>
+                  <input
+                    className="inline font-light"
+                    type="file"
+                    accept=".jpg, .jpeg, .png"
+                    onChange={handleImg}
+                  />
+                </div>
+              </div>
+
+              <p className="text-purple text-lg italic">
+                Anda akan mendapatkan {totalPoints}{' '}
+                <img
+                  alt="flower-icon"
+                  src={flower}
+                  className="inline w-6 ml-1 mb-1 rounded-full"
                 />
-              </div>
-            </div>
+              </p>
 
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3">
-                <label
-                  className="uppercase tracking-wide text-gray-700 text-xs font-bold mr-4 mb-2"
-                  htmlFor="grid-password"
+              <div className="mt-8 text-sm text-red italic">* Wajib diisi</div>
+
+              {error ? (
+                <div className="mt-6 text-sm text-center text-red italic">
+                  Terjadi kesalahan, silahkan coba lagi!
+                </div>
+              ) : null}
+
+              {success ? (
+                <div className="mt-6 text-sm text-center text-purple italic">
+                  Proses klaim berhasil, silahkan tunggu konfirmasi dari Admin.
+                </div>
+              ) : null}
+
+              <div className="flex justify-center items-center mt-7">
+                <button
+                  type="submit"
+                  className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded"
                 >
-                  Faktur <span className="text-red">*</span>
-                </label>
-                <input
-                  className="inline font-light"
-                  type="file"
-                  accept=".jpg, .jpeg, .png"
-                  onChange={handleImg}
-                />
+                  Kirim
+                </button>
               </div>
-            </div>
-
-            <p className="text-purple text-lg italic">
-              Anda akan mendapatkan {totalPoints}{' '}
-              <img
-                alt="flower-icon"
-                src={flower}
-                className="inline w-6 ml-1 mb-1 rounded-full"
-              />
-            </p>
-
-            <div className="mt-8 text-sm text-red italic">* Wajib diisi</div>
-
-            {error ? (
-              <div className="mt-6 text-sm text-center text-red italic">
-                Terjadi kesalahan, silahkan coba lagi!
-              </div>
-            ) : null}
-
-            {success ? (
-              <div className="mt-6 text-sm text-center text-purple italic">
-                Proses klaim berhasil, silahkan tunggu konfirmasi dari Admin.
-              </div>
-            ) : null}
-
-            <div className="flex justify-center items-center mt-7">
-              <button
-                type="submit"
-                className="mx-auto px-4 py-2 text-white font-semibold bg-purple hover:bg-darkpurple rounded"
-              >
-                Kirim
-              </button>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   )
